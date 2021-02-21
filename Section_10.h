@@ -21,11 +21,7 @@ int Crypto()
 			}
 		}
 	}
+	// a;; 
 	cout << "Crypted phrase: \n", crypted_phrase;
-	
-
-
-
-
 	return 0;
 }
