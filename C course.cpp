@@ -15,7 +15,8 @@ int main()
     //FCCServ();
     //Vector();
     //Convert();
-    Numbers();
+    //Numbers();
+    Crypto();
 
     return 0;
 }
