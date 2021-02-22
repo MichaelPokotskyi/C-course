@@ -142,6 +142,7 @@
     <ClCompile Include="C course.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="1st_assignment.h" />
     <ClInclude Include="Section_10.h" />
     <ClInclude Include="Section_4.h" />
     <ClInclude Include="Section_6.h" />

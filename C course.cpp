@@ -8,6 +8,7 @@
 #include "Section_8.h"
 #include "Section_9.h"
 #include "Section_10.h"
+#include "1st_assignment.h"
 
 int main()
 {
@@ -16,7 +17,8 @@ int main()
     //Vector();
     //Convert();
     //Numbers();
-    Crypto();
+    //Crypto();
+    Stars();
 
     return 0;
 }
