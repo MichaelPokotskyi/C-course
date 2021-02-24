@@ -16,7 +16,7 @@ int Stars() {
     int position{ 0 };
 
     // for each letter in the string
-    for (int c{ 0 }; c <= num_letters; ++c) {
+    for (int c{ 0 }; c <= num_letters; ++c) {  
 
         size_t num_spaces = num_letters - position;
         while (num_spaces > 0) {
