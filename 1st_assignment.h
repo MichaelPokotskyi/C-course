@@ -8,7 +8,7 @@ using namespace std;
 int Stars() {
 	
     string letters{};
-
+       
     cout <<"Enter a string : ";
     cin >> letters;
 
