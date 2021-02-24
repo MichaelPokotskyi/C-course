@@ -41,5 +41,8 @@
     <ClInclude Include="1st_assignment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Section_11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

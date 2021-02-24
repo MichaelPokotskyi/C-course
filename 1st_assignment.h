@@ -8,15 +8,15 @@ using namespace std;
 int Stars() {
 	
     string letters{};
-       
-    cout <<"Enter a string : ";    
+
+    cout << "Enter a string : ";
     cin >> letters;
 
     size_t num_letters = letters.length();
     int position{ 0 };
 
     // for each letter in the string
-    for (int c{ 0 }; c <= num_letters; ++c) {  
+    for (int c{ 0 }; c <= num_letters; ++c) {
 
         size_t num_spaces = num_letters - position;
         while (num_spaces > 0) {
@@ -40,6 +40,8 @@ int Stars() {
             auto k = static_cast<size_t>(j);
             cout << letters.at(k);
         }
+    }
+ 
         return 0;
     }
         
