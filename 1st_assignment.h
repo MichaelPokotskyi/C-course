@@ -40,13 +40,9 @@ int Stars() {
             auto k = static_cast<size_t>(j);
             cout << letters.at(k);
         }
-
-        cout << std::endl; // Don't forget the end line
-        ++position;
+        return 0;
     }
-
-	return 0;
-}
+        
 
 /*
 * So let's go through the solution, Lets say we enter in "ABC"
