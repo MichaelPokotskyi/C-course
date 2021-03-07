@@ -4,7 +4,7 @@
 using namespace std;
 // Section 9 challenge re written with functions.
 
-void menu();
+void menu(vector<signed>);
 void choise(char, vector<signed>);
 void print(vector<signed>);
 void add(vector<signed>);
@@ -17,18 +17,13 @@ bool q = true;
 
 void startNumbers() 
 {
-	
-	//char ch{};
-	menu();
+	static vector<signed> vec{};
+	menu(vec); // start
 }
 
-void menu()
+void menu(vector<signed> vec)
 {
 	char a;
-	static vector<signed> vec{};
-	signed add{ 0 }, sum{ 0 }, smallest{ 0 }, biggest{ 0 };
-	double ave{};
-
 	while (q) {
 		cout << "Your choise:\n";
 		cout <<
@@ -42,85 +37,6 @@ void menu()
 		choise(a, vec);
 	}
 }
-	//--------------------------------------------------------//
-		/*switch (choise)
-		{
-		case 'p':
-		case 'P':
-			if (vec.size() == 0) {
-				cout << "\n[] - list size is zero\n";
-			}
-			else
-			{
-				cout << "\n[";
-				for (unsigned i{ 0 }; i < vec.size(); ++i)
-				{
-					if (i != vec.size() - 1) { cout << vec[i] << " "; }
-					else { cout << vec[i]; }
-				}
-				cout << "]\n";
-			}
-			break;
-		case 'a':
-		case 'A':
-			cout << "\nEnter your number: \n";
-			cin >> add;
-			vec.push_back(add);
-			cout << "\nYou added number : " << add << "\n";
-			break;
-		case 'm':
-		case 'M':
-			if (vec.size() == 0) {
-				cout << "\n[] - list size is zero\n";
-			}
-			else
-			{
-				for (unsigned i{ 0 }; i < vec.size(); ++i)
-				{
-					sum += vec[i];
-				}
-				ave = (double)(sum) / vec.size();
-				cout << "\nList average value: " << ave << "\n";
-			}
-			break;
-		case 's':
-		case 'S':
-			if (vec.size() == 0) {
-				cout << "\n[] - list size is zero\n";
-			}
-			else
-			{
-				for (unsigned i{ 1 }; i < vec.size(); ++i)
-				{
-					smallest = vec[0];
-					if (vec[i] < smallest) { smallest = vec[i]; }
-				}
-				cout << "\nSmallest number in your list is: " << smallest << "\n";
-			}
-			break;
-		case 'l':
-		case 'L':
-			if (vec.size() == 0) {
-				cout << "\n[] - list size is zero\n";
-			}
-			else
-			{
-				for (unsigned i{ 1 }; i < vec.size(); ++i)
-				{
-					biggest = vec[0];
-					if (vec[i] > biggest) { biggest = vec[i]; }
-				}
-				cout << "\nLargest number in your list is: " << biggest << "\n";
-			}
-			break;
-		case 'q':
-		case 'Q':
-			cout << "Goodbye\n";
-			break;
-		default: cout << "\nIllegal choise, try again.\n";
-		}
-	
-}*/
 
 void choise(char a, vector<signed> vec)
 {
@@ -131,7 +47,7 @@ void choise(char a, vector<signed> vec)
 	else if (a == 'l' || a == 'L') { disp_Largest(vec); }
 	else if (a == 'q' || a == 'Q') { quit(); }
 	else cout << "\nIllegal choise, try again.\n";
-	menu();
+	menu(vec);
 }
 
 void print(vector<signed> vec)
@@ -147,24 +63,72 @@ void print(vector<signed> vec)
 		}
 		cout << "]\n";
 	}
-menu();
+menu(vec);
 }
 
-void add(vector<signed> vec) 
+void add(vector<signed> vec)
 { 
 	int add{};
 	cout << "\nEnter your number: \n";
 	cin >> add;
 	vec.push_back(add);
-	cout << "\nYou added number : " << add << "\n";
-	menu(); 
+	cout << "\nYou added number: " << add << "\n";
+	menu(vec); 
 }
-void disp_Ave(vector<signed> vec) {}
-void disp_Smallest(vector<signed> vec) {}
-void disp_Largest(vector<signed> vec) {}
+void disp_Ave(vector<signed> vec) 
+{
+	signed ave{}, sum{};
+	if (vec.size() == 0) {
+		cout << "\n[] - List size is zero!\n";
+	}
+	else
+	{
+		for (unsigned i{ 0 }; i < vec.size(); ++i)
+		{
+			sum += vec[i];
+		}
+		ave = (double)(sum) / vec.size();
+		cout << "\nList average value: " << ave << "\n";
+	}
+	menu(vec);
+}
+void disp_Smallest(vector<signed> vec) 
+{
+	signed smallest{};
+	if (vec.size() == 0) {
+		cout << "\n[] - list size is zero\n";
+	}
+	else
+	{
+		for (unsigned i{ 1 }; i < vec.size(); ++i)
+		{
+			smallest = vec[0];
+			if (vec[i] < smallest) { smallest = vec[i]; }
+		}
+		cout << "\nSmallest number in your list is: " << smallest << "\n";
+	}
+	menu(vec);
+}
+void disp_Largest(vector<signed> vec) 
+{
+	signed biggest{};
+	if (vec.size() == 0) {
+		cout << "\n[] - list size is zero\n";
+	}
+	else
+	{
+		for (unsigned i{ 1 }; i < vec.size(); ++i)
+		{
+			biggest = vec[0];
+			if (vec[i] > biggest) { biggest = vec[i]; }
+		}
+		cout << "\nLargest number in your list is: " << biggest << "\n";
+	}
+	menu(vec);
+}
 
 void quit() 
 {
 	q = false;
-	cout << "\n See you later!";
+	cout << "\nSee you later!";
 }
