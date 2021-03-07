@@ -20,6 +20,7 @@ int main()
     //Numbers();
     //Crypto();
     //Stars();
+    startNumbers();
 
     return 0;
 }
