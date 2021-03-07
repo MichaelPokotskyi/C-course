@@ -63,7 +63,7 @@ void print(vector<signed> vec)
 		}
 		cout << "]\n";
 	}
-menu(vec);
+	menu(vec);
 }
 
 void add(vector<signed> vec)
