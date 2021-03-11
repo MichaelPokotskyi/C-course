@@ -10,6 +10,7 @@
 #include "Section_10.h"
 #include "1st_assignment.h"
 #include "Section_11.h"
+#include "Section_12.h"
 
 int main()
 {
@@ -20,7 +21,7 @@ int main()
     //Numbers();
     //Crypto();
     //Stars();
-    startNumbers();
+    //startNumbers();
 
     return 0;
 }
