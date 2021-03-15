@@ -22,6 +22,7 @@ int main()
     //Crypto();
     //Stars();
     //startNumbers();
+    s12();
 
     return 0;
 }
