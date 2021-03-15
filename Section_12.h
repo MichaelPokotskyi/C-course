@@ -11,8 +11,8 @@ void s12() {
 	arr_ptr = new int{ size };
 	
 	for (int i{0}; i < size; ++i) {
-		(*arr_ptr).at(i) = i;
-		cout << &arr_ptr[i] << " " <<  (*arr_ptr).at(i) << endl;
+		arr_ptr[i] = i;
+		cout << &arr_ptr[i] << " " <<  arr_ptr[i] << endl;
 	}
 //	char t{};
 //	cin >> t;
