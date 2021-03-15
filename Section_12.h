@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-void print(int[], size_t);
-int* apply_all(int[], int, int[], int);
+void print(int arr[], size_t size);
+int* apply_all(int arr1[], int size1, int arr2[], int size2);
 
 void s12() {
 	/*
@@ -18,8 +18,8 @@ void s12() {
 	}
 	*/
 	
-	const size_t array1_size{ 5 };
-	const size_t array2_size{ 3 };
+	const int array1_size{ 5 };
+	const int array2_size{ 3 };
 
 	int arr1[]{ 1, 2, 3, 4, 5 };
 	int arr2[]{ 10, 20, 30 };
@@ -31,18 +31,17 @@ void s12() {
 	print(arr2, array2_size);
 
 	int *results = apply_all(arr1, array1_size, arr2, array2_size);
-	//constexpr size_t res{ array1_size * array2_size };
-	size_t res{ array1_size * array2_size };
+	int res{ array1_size * array2_size };
 
 	cout << "Result: ";
-	//print(results, res);
+	print(results, res);
 
 }
 
 void print(int arr[], size_t size)
 {
 	cout << "[";
-	for (size_t i{ 0 }; i < size; ++i)
+	for (size_t i{ 0 }; i < size; ++i) 
 	{
 		if (i != size - 1)
 		{
@@ -59,5 +58,17 @@ void print(int arr[], size_t size)
 
 int* apply_all(int arr1[], int size1, int arr2[], int size2)
 {
-	return 0;
+	int size_new = size1 * size2;
+	int* arr{nullptr};
+	arr = new int[size_new];
+	int count{0};
+	for (size_t i{0}; i < size2; ++i)
+	{
+		for (size_t j{0}; j < size1; ++j)
+		{
+			arr[count] = (arr2[i] * arr1[j]);
+				++count;
+		}
+	}
+	return arr;
 }
