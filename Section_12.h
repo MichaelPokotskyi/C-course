@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-void print(int arr[], size_t size);
-int* apply_all(int arr1[], int size1, int arr2[], int size2);
-
+void print(const int const* arr, size_t size);
+int * apply_all(int const arr1[], int size1, int const arr2[], int size2);
+ 
 void s12() {
 	/*
 	int *arr_ptr{nullptr};
@@ -36,9 +36,10 @@ void s12() {
 	cout << "Result: ";
 	print(results, res);
 
+	delete[] results;
 }
 
-void print(int arr[], size_t size)
+void print(const int const *arr, size_t size)
 {
 	cout << "[";
 	for (size_t i{ 0 }; i < size; ++i) 
@@ -56,11 +57,10 @@ void print(int arr[], size_t size)
 	cout << endl;
 }
 
-int* apply_all(int arr1[], int size1, int arr2[], int size2)
+int * apply_all(int const arr1[], int size1, int const arr2[], int size2)
 {
-	int size_new = size1 * size2;
 	int* arr{nullptr};
-	arr = new int[size_new];
+	arr = new int[size1 * size2];
 	int count{0};
 	for (size_t i{0}; i < size2; ++i)
 	{
