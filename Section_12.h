@@ -36,6 +36,8 @@ void s12() {
 	cout << "Result: ";
 	print(results, res);
 
+	delete[] results;
+
 }
 
 void print(int arr[], size_t size)
