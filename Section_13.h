@@ -8,7 +8,7 @@ class Player {
 	int health;
 	int xp;
 
-	//fumc prototypes
+	//func prototypes
 	void talk(string);
 	bool is_dead();
 };
