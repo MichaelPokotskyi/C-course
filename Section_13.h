@@ -3,10 +3,12 @@
 using namespace std;
 
 class Player {
+	// class variables
 	string name;
 	int health;
 	int xp;
 
+	//fumc prototypes
 	void talk(string);
 	bool is_dead();
 };
