@@ -18,6 +18,12 @@
     <ClCompile Include="C course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Moovie.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moovies.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Section_4.h">
@@ -48,6 +54,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Section_13.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moovie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moovies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

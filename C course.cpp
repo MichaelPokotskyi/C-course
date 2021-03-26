@@ -12,6 +12,8 @@
 #include "Section_11.h"
 #include "Section_12.h"
 #include "Section_13.h"
+#include "Moovie.h"
+#include "Moovies.h"
 
 int main()
 {
@@ -24,7 +26,14 @@ int main()
     //Stars();
     //startNumbers();
     //s12();
-    s13();
+    
+    Movies my_movies;
+    my_movies.display();
+    
+    add_movie(my_movies, "Big", "PG-13", 2);
+    add_movie(my_movies, "Star Wars", "PG", 5);
+    add_movie(my_movies, "Cinderella", "PG", 7);
+
 
     return 0;
 }
