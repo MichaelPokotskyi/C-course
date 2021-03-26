@@ -18,10 +18,10 @@
     <ClCompile Include="C course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Moovie.cpp">
+    <ClCompile Include="Moovies.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Moovies.cpp">
+    <ClCompile Include="Movie.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,10 +56,10 @@
     <ClInclude Include="Section_13.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Moovie.h">
+    <ClInclude Include="Moovies.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Moovies.h">
+    <ClInclude Include="Movie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

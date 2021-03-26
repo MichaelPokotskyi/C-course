@@ -1,5 +1,5 @@
 #pragma once
-#include "Moovie.h"
+#include "Movie.h"
 using namespace std;
 
 //class metods implementation

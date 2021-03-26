@@ -140,12 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C course.cpp" />
-    <ClCompile Include="Moovie.cpp" />
+    <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Moovies.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="1st_assignment.h" />
-    <ClInclude Include="Moovie.h" />
+    <ClInclude Include="Movie.h" />
     <ClInclude Include="Moovies.h" />
     <ClInclude Include="Section_10.h" />
     <ClInclude Include="Section_11.h" />

@@ -27,7 +27,7 @@ int main()
     //startNumbers();
     //s12();
     
-    Movies my_movies;
+    Moovies my_movies;
     my_movies.display();
     
     add_movie(my_movies, "Big", "PG-13", 2);
