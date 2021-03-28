@@ -12,8 +12,8 @@
 #include "Section_11.h"
 #include "Section_12.h"
 #include "Section_13.h"
-#include "Moovie.h"
-#include "Moovies.h"
+#include "Movie.h"
+#include "Movies.h"
 
 int main()
 {
@@ -27,12 +27,19 @@ int main()
     //startNumbers();
     //s12();
     
-    Moovies my_movies;
-    my_movies.display();
+    Movie *movie1{nullptr};
+    Movie m("Big", "PG-13", 2);
+    movie1 = &m;
+
+    cout << movie1->get_movie_name();
+    cout << movie1->get_movie_rating();
+    cout << movie1->get_movie_watch_q();
+
+    //display();
     
-    add_movie(my_movies, "Big", "PG-13", 2);
-    add_movie(my_movies, "Star Wars", "PG", 5);
-    add_movie(my_movies, "Cinderella", "PG", 7);
+    //my_movies.add_movie(my_movies, "Big", "PG-13", 2);
+    //my_movies.add_movie(my_movies, "Star Wars", "PG", 5);
+    //my_movies.add_movie(my_movies, "Cinderella", "PG", 7);
 
 
     return 0;

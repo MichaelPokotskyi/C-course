@@ -3,17 +3,22 @@
 using namespace std;
 
 //class metods implementation
-string Moovie :: get_moovie_name()
+string Movie :: get_movie_name()
 {
 	return name;
 }
 
-string Moovie :: get_moovie_rating()
+string Movie :: get_movie_rating()
 {
 	return rating;
 }
 
-int Moovie :: get_moovie_watch_q()
+int Movie :: get_movie_watch_q()
 {
 	return watch_q;
+}
+
+void Movie::increase_watch(Movie m)
+{
+	m.get_movie_watch_q();
 }
