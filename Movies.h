@@ -13,7 +13,7 @@ private:
 
 public:
 	// methods prototypes
-	void add_movie(Movies m, string name, string rating, int watch_q);
+	void add_movie(Movie m);
 	void display();
 
 	//constructors

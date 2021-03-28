@@ -28,12 +28,16 @@ int main()
     //s12();
     
     Movie *movie1{nullptr};
-    Movie m("Big", "PG-13", 2);
-    movie1 = &m;
+    //Movie m("Big", "PG-13", 2);
+    movie1 = new Movie("Big", "PG-13", 2);
 
-    cout << movie1->get_movie_name();
-    cout << movie1->get_movie_rating();
-    cout << movie1->get_movie_watch_q();
+    cout << movie1->get_movie_name() << endl;
+    cout << movie1->get_movie_rating() << endl;
+    cout << movie1->get_movie_watch_q() << endl;
+    movie1->increase_watch(*movie1);
+    cout << movie1->get_movie_name() << endl;
+    cout << movie1->get_movie_rating() << endl;
+    cout << movie1->get_movie_watch_q() << endl;
 
     //display();
     

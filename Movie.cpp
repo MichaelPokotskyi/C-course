@@ -20,5 +20,5 @@ int Movie :: get_movie_watch_q()
 
 void Movie::increase_watch(Movie m)
 {
-	m.get_movie_watch_q();
+	++watch_q;
 }
