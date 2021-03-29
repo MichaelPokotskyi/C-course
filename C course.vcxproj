@@ -146,6 +146,7 @@
     <ClInclude Include="Section_10.h" />
     <ClInclude Include="Section_11.h" />
     <ClInclude Include="Section_12.h" />
+    <ClInclude Include="Section_13.h" />
     <ClInclude Include="Section_4.h" />
     <ClInclude Include="Section_6.h" />
     <ClInclude Include="Section_7.h" />

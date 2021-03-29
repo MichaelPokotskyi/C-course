@@ -47,5 +47,8 @@
     <ClInclude Include="Section_12.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Section_13.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
