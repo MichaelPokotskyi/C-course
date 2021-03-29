@@ -17,6 +17,7 @@ bool q = true;
 
 void startNumbers() 
 {
+
 	static vector<signed> vec{};
 	menu(vec); // start
 }

@@ -18,8 +18,8 @@ void s13()
 	Player frank;
 	Player hero;
 
-	Player* enemy{ nullptr };
-	enemy = new Player;
+	Player *enemy{ nullptr };
+	enemy = new Player; 
 	delete enemy;
 }
 
