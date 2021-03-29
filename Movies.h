@@ -13,12 +13,18 @@ private:
 
 public:
 	// methods prototypes
-	void add_movie(Movie m);
-	void display();
+	void add_movie(Movie *m);
+	void const display();
 
 	//constructors
 	Movies()
 	{
 		//empty const
 	}
+
+	/*Movies(Movie m)
+	{
+		//empty const
+	}*/
+
 };

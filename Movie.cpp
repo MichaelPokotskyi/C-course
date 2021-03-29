@@ -3,22 +3,24 @@
 using namespace std;
 
 //class metods implementation
-string Movie :: get_movie_name()
+string const Movie :: get_movie_name()
 {
 	return name;
 }
 
-string Movie :: get_movie_rating()
+string const Movie :: get_movie_rating()
 {
 	return rating;
 }
 
-int Movie :: get_movie_watch_q()
+int const Movie :: get_movie_watch_q()
 {
 	return watch_q;
 }
 
-void Movie::increase_watch(Movie m)
+void Movie::increase_watch(Movie *m)
 {
-	++watch_q;
+	m->watch_q++;
+	cout << "Watch was increased for movie: " << m->get_movie_name() << ", "
+		<< "now " << m->get_movie_watch_q() << endl;
 }

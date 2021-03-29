@@ -14,6 +14,7 @@
 #include "Section_13.h"
 #include "Movie.h"
 #include "Movies.h"
+using namespace std;
 
 int main()
 {
@@ -27,25 +28,52 @@ int main()
     //startNumbers();
     //s12();
     
-    Movie *movie1{nullptr};
-    //Movie m("Big", "PG-13", 2);
-    movie1 = new Movie("Big", "PG-13", 2);
 
-    cout << movie1->get_movie_name() << endl;
-    cout << movie1->get_movie_rating() << endl;
-    cout << movie1->get_movie_watch_q() << endl;
-    movie1->increase_watch(*movie1);
-    cout << movie1->get_movie_name() << endl;
-    cout << movie1->get_movie_rating() << endl;
-    cout << movie1->get_movie_watch_q() << endl;
+    Movie movie1{ "Big", "PG-13", 2 },
+        movie2{ "Star Wars", "PG", 5 },
+        movie3{ "Cinderella", "PG", 7 };
+        //movie4{"Cinderella", "PG", 7};
+
+    Movie* m3{nullptr};
+    m3 = &movie3;
+
+    Movies m;
+
+
+    //movie1("Big", "PG-13", 2);
+
+    //movie2 = new Movie("Star Wars", "PG", 5);
+    //movie3 = new Movie("Cinderella", "PG", 7);
+    //movie4 = new Movie("Cinderella", "PG", 7);
+
+
+    m.display();
+
+    m.add_movie(&movie1);
+    m.add_movie(&movie2);
+    m.add_movie(&movie3);
+
+    m.display();
+
+    movie3.increase_watch(m3);
+
+    m.display();
+
+    //m.display();
+
+    //m.add_movie(*movie4);
+
+    ///m.display();
+
+    //!!!
+    /*delete movie1;
+    delete movie2;
+    delete movie3;
+    delete movie4;*/
 
     //display();
     
-    //my_movies.add_movie(my_movies, "Big", "PG-13", 2);
-    //my_movies.add_movie(my_movies, "Star Wars", "PG", 5);
-    //my_movies.add_movie(my_movies, "Cinderella", "PG", 7);
-
-
+    
     return 0;
 }
 

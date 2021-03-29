@@ -12,11 +12,11 @@ private:
 
 public:
 	//metods prototypes here
-	string get_movie_name();
-	string get_movie_rating();
-	int get_movie_watch_q();
-	void increase_watch(Movie m);
-
+	string const get_movie_name();
+	string const get_movie_rating();
+	int const get_movie_watch_q();
+	static void increase_watch(Movie* m);
+	
 	// constructors
 	Movie()
 	{
