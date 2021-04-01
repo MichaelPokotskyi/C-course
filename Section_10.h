@@ -5,7 +5,7 @@ using namespace std;
 
 int Crypto()
 {	/**/
-	int const milliseconds{ 10 };
+	int const MILLISECONDS{10};
 	string alphabet{ "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ " };
 	string key{ "XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr%" };
 	string orig_phrase{}, crypted_phrase{}, decrypted_phrase{};
@@ -27,7 +27,7 @@ int Crypto()
 	for (size_t i{0}; i < 40; ++i)
 	{
 		cout << '*';
-		Sleep(milliseconds);
+		Sleep(MILLISECONDS);
 	}
 	cout << "\n";
 	cout <<"Crypted phrase: \n" << crypted_phrase << "\n";
@@ -45,7 +45,7 @@ int Crypto()
 	for (size_t i{ 0 }; i < 40; ++i)
 	{
 		cout << '*';
-		Sleep(milliseconds);
+		Sleep(MILLISECONDS);
 	}
 	cout << "\n";
 	cout << "Derypted phrase: \n" << decrypted_phrase << "\n";
