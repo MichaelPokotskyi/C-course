@@ -29,33 +29,21 @@ int main()
     //s12();
     
 
-    Movie movie1{ "Big", "PG-13", 2 },
-        movie2{ "Star Wars", "PG", 5 },
-        movie3{ "Cinderella", "PG", 7 };
-        //movie4{"Cinderella", "PG", 7};
-
-    Movie* m3{nullptr};
-    m3 = &movie3;
+    Movie movie1("Star Wars", "PG", 5);
+    Movie movie2("Big", "PG-13", 2);
+    Movie movie3("Cinderella", "PG", 7);
 
     Movies m;
 
+    m.display();
 
-    //movie1("Big", "PG-13", 2);
-
-    //movie2 = new Movie("Star Wars", "PG", 5);
-    //movie3 = new Movie("Cinderella", "PG", 7);
-    //movie4 = new Movie("Cinderella", "PG", 7);
-
+    m.add_movie(movie1);
+    m.add_movie(movie2);
+    m.add_movie(movie3);
 
     m.display();
 
-    m.add_movie(&movie1);
-    m.add_movie(&movie2);
-    m.add_movie(&movie3);
-
-    m.display();
-
-    movie3.increase_watch(m3);
+    m.increase_watch(movie3);
 
     m.display();
 
@@ -66,10 +54,10 @@ int main()
     ///m.display();
 
     //!!!
-    /*delete movie1;
-    delete movie2;
-    delete movie3;
-    delete movie4;*/
+    //delete movie1;
+    //delete movie2;
+    //delete movie3;
+    //delete movie4;
 
     //display();
     

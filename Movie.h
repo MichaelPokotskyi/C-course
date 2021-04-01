@@ -16,8 +16,6 @@ public:
 	string const get_movie_name();
 	string const get_movie_rating();
 	int const get_movie_watch_q();
-	void increase_watch(Movie* m);
-	
 	// constructors
 	Movie()
 	{
@@ -31,5 +29,9 @@ public:
 		this->watch_q = watch_q;
 	}
 
+	void inc_movie_watch_q() 
+	{
+		watch_q++;
+	}
 
 };

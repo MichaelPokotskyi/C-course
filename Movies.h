@@ -9,22 +9,17 @@ class Movies
 {
 private:
 	//class variable
-	vector<Movie> Mov{};
+	vector<Movie> Mov;
 
 public:
 	// methods prototypes
-	void add_movie(Movie *m);
+	void add_movie(Movie m);
 	void const display();
+	void increase_watch(Movie m);
 
 	//constructors
 	Movies()
 	{
 		//empty const
 	}
-
-	/*Movies(Movie m)
-	{
-		//empty const
-	}*/
-
 };
