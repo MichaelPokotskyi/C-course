@@ -14,10 +14,11 @@
 #include "Section_13.h"
 #include "Movie.h"
 #include "Movies.h"
-using namespace std;
+//using namespace std;
 
 int main()
 {
+    //Small section assignments
     //Second();
     //FCCServ();
     //Vector();
@@ -28,40 +29,23 @@ int main()
     //startNumbers();
     //s12();
     
-
+    /* 
+    Moovie assignment
     Movie movie1("Star Wars", "PG", 5);
     Movie movie2("Big", "PG-13", 2);
     Movie movie3("Cinderella", "PG", 7);
-
     Movies m;
-
     m.display();
-
     m.add_movie(movie1);
     m.add_movie(movie2);
     m.add_movie(movie3);
-
     m.display();
-
     m.increase_watch(movie3);
-
     m.display();
+    */
 
-    //m.display();
 
-    //m.add_movie(*movie4);
-
-    ///m.display();
-
-    //!!!
-    //delete movie1;
-    //delete movie2;
-    //delete movie3;
-    //delete movie4;
-
-    //display();
-    
-    
+   
     return 0;
 }
 
