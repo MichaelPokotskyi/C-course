@@ -18,20 +18,20 @@
 
 int main()
 {
-    //Small section assignments
+    //Small section assignments 
     //Second();
     //FCCServ();
     //Vector();
-    //Convert();
+    //Convert(); 
     //Numbers();
     //Crypto();
     //Stars();
     //startNumbers();
-    //s12();
+    s12();
     
-    /* 
-    Moovie assignment
-    Movie movie1("Star Wars", "PG", 5);
+     
+    //Moovie assignment
+    /*Movie movie1("Star Wars", "PG", 5);
     Movie movie2("Big", "PG-13", 2);
     Movie movie3("Cinderella", "PG", 7);
     Movies m;
@@ -40,12 +40,33 @@ int main()
     m.add_movie(movie2);
     m.add_movie(movie3);
     m.display();
+    m.increase_watch(movie1);
+    m.increase_watch(movie2);
     m.increase_watch(movie3);
-    m.display();
-    */
+    m.display();*/
+    
 
+    // pointers and ref practice;
+    /*int a{ 10 }, b{15}, *p{ nullptr }, * n{ nullptr };
+    p = new int;
+    p = &a;
+    n = &b;
+    cout << &a << " " << p << endl;
+    cout << a << " " << *p << endl;
 
-   
+    cout << &b << " " << n << endl;
+    cout << b << " " << *n << endl;
+
+    //delete p;
+
+    /**p = 20; 
+    cout << &a << " " << p << endl;
+    cout << a << " " << *p << endl;
+
+    a = 30;
+    cout << &a << " " << p << endl;
+    cout << a << " " << *p << endl;*/
+
     return 0;
 }
 
