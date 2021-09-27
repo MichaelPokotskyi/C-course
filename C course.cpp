@@ -12,6 +12,7 @@
 #include "Section_11.h"
 #include "Section_12.h"
 #include "Section_13.h"
+#include "Section_14.h"
 #include "Movie.h"
 #include "Movies.h"
 //using namespace std;
@@ -27,7 +28,7 @@ int main()
     //Crypto();
     //Stars();
     //startNumbers();
-    s12();
+    //s12();
     
      
     //Moovie assignment
@@ -66,6 +67,14 @@ int main()
     a = 30;
     cout << &a << " " << p << endl;
     cout << a << " " << *p << endl;*/
+
+    Mystring empty; // no args constructor
+    Mystring larry("Larry"); // overloaded constructor
+    Mystring stooge{ larry }; // copy constructor
+
+    empty.display();
+    larry.display();
+    stooge.display();
 
     return 0;
 }
