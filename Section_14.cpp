@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable : 4996);
 #include <iostream>
 #include <cstring>
 #include "Section_14.h"
@@ -38,8 +39,8 @@ Mystring::~Mystring() {
 }
 
 //Copy assignment
-Mystring &Mystring::operator=(const Mystring& rhs) {
-	if (this == &rhs) {
+Mystring &Mystring::operator=(const Mystring &rhs) {
+if (this == &rhs) {
 		return *this;
 		delete[] this->str;
 	} 
@@ -57,4 +58,6 @@ int Mystring::get_length() const {
 	return strlen(str);
 }
 
-//const char* get_str() const;
+const char* Mystring::get_str() const {
+	return str;
+}
