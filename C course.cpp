@@ -69,15 +69,16 @@ int main()
     cout << a << " " << *p << endl;*/
 
         
-    Mystring empty; // no args constructor
+    /*Mystring empty; // no args constructor
     Mystring larry("Larry"); // overloaded constructor
-    Mystring stooge{ larry }; // copy constructor
+    Mystring stooge{ larry }; // copy constructor*/
 
-    empty.display();
-    larry.display();
-    stooge.display();
+    Mystring a{ "Hello" };
+    Mystring b;
+    b = a;
+    b = "This is a test";
+    
 
-    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
