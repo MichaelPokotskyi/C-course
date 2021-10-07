@@ -6,16 +6,14 @@
 
 using namespace std;
 
-// no args constructor
-Mystring::Mystring()
-	: str{nullptr} {
+//No args constructor
+Mystring::Mystring() : str{nullptr} {
 	str = new char[1];
 	*str = '\0';
 }
 
-//Overloaded constructor
-Mystring::Mystring(const char* s) 
-	:str{nullptr} {
+//One arg constructor 
+Mystring::Mystring(const char* s) : str{nullptr} {
 	if (s == nullptr) {
 		str = new char[1];
 		*str = '\0';
@@ -32,8 +30,8 @@ Mystring::Mystring(const Mystring &source) : str{nullptr} {
 	strcpy(str, source.str);
 }
 
-// Move constructor
-Mystring::Mystring(Mystring&& source) noexcept : str{source.str} {
+//Move constructor
+Mystring::Mystring(Mystring&& source) : str{source.str} {
 	source.str = nullptr;
 }
 
@@ -41,8 +39,8 @@ Mystring::Mystring(Mystring&& source) noexcept : str{source.str} {
 Mystring::~Mystring() {
 	delete [] str;
 }
-
-//Copy assignment
+//Overloads as member functions:
+//Overload "=" opeartor
 Mystring &Mystring::operator=(const Mystring &rhs) {
 if (this == &rhs) {
 		return *this;
@@ -51,6 +49,13 @@ if (this == &rhs) {
 	str = new char[strlen(rhs.str) + 1];
 	strcpy(this->str, rhs.str);
 	return *this;
+}
+
+//Overload "-" opeartor
+Mystring Mystring :: operator-() const {
+	char* buf = new char[strlen(str) + 1];
+	strcpy(buf, str);
+
 }
 
 //Getters implementation

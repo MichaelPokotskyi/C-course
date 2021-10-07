@@ -16,9 +16,24 @@ public:
 	Mystring(Mystring &&source);// move constructor
 	~Mystring(); // destructor
 
-	// overloads as member functions
-	// "=" overload 
-	Mystring& operator=(const Mystring& rhs); 
+	//Section 14 challenge
+
+	//Overloads as member functions:
+	// overload "="
+	Mystring &operator=(const Mystring& rhs);
+	//overload "-"
+	Mystring operator-() const;
+	//overload "=="
+	//overload "!="
+	//overload "<"
+	//overload ">"
+	//overload "+"
+	//overload "+="
+	//overload "*"
+	//overload "*="
+	//overload "++"
+	//overload "--"
+
 
 	void display() const;
 	int get_length() const; // getters
