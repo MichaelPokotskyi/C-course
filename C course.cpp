@@ -1,5 +1,6 @@
 // C course.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+using namespace std;
 
 #include <iostream>
 #include "Section_4.h"
@@ -15,7 +16,7 @@
 #include "Section_14.h"
 #include "Movie.h"
 #include "Movies.h"
-//using namespace std;
+
 
 int main()
 {
@@ -73,12 +74,10 @@ int main()
     Mystring larry("Larry"); // overloaded constructor
     Mystring stooge{ larry }; // copy constructor*/
 
-    Mystring a{ "Hello" };
-    Mystring b;
-    b = a;
-    b = "This is a test";
-    
-
+    Mystring a{ "HELLO" };
+    a.display();
+    a = -a;
+    a.display();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

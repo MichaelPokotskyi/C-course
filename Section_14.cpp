@@ -55,7 +55,12 @@ if (this == &rhs) {
 Mystring Mystring :: operator-() const {
 	char* buf = new char[strlen(str) + 1];
 	strcpy(buf, str);
-
+	for (size_t i = 0; i < strlen(buf); i++) {
+		buf[i] = tolower(buf[i]);
+	}
+	Mystring temp{ buf };
+	delete[] buf;
+	return temp;
 }
 
 //Getters implementation
