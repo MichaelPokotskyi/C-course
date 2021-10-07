@@ -27,10 +27,14 @@ Mystring::Mystring(const char* s)
 }
 
 //Copy constructor
-Mystring::Mystring(const Mystring &source) 
-	: str{nullptr} {
+Mystring::Mystring(const Mystring &source) : str{nullptr} {
 	str = new char[strlen(str) + 1];
 	strcpy(str, source.str);
+}
+
+// Move constructor
+Mystring::Mystring(Mystring&& source) noexcept : str{source.str} {
+	source.str = nullptr;
 }
 
 //Destructor

@@ -12,10 +12,13 @@ private:
 public:
 	Mystring(); // no-args constructor
 	Mystring(const char* s); // overloaded constructor
-	Mystring(const Mystring& source); // copy constructor
+	Mystring(const Mystring &source); // copy constructor
+	Mystring(Mystring &&source);// move constructor
 	~Mystring(); // destructor
 
-	Mystring& operator=(const Mystring& rhs);
+	// overloads as member functions
+	// "=" overload 
+	Mystring& operator=(const Mystring& rhs); 
 
 	void display() const;
 	int get_length() const; // getters
