@@ -78,6 +78,13 @@ int main()
     a.display();
     a = -a;
     a.display();
+    Mystring b{ "HELLO" };
+    Mystring c{ "HELLO" };
+    bool x = (a == b);
+    bool r = (c == b);
+    cout << boolalpha << x;
+    cout << boolalpha << r;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

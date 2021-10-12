@@ -21,12 +21,22 @@ public:
 	//Overloads as member functions:
 	// overload "="
 	Mystring &operator=(const Mystring& rhs);
+
 	//overload "-"
 	Mystring operator-() const;
+
 	//overload "=="
+	bool &operator==(const Mystring &rhs);
+
 	//overload "!="
+	bool& operator!=(const Mystring& rhs);
+
 	//overload "<"
+	bool& operator<(const Mystring& rhs);
+
 	//overload ">"
+	bool& operator>(const Mystring& rhs);
+
 	//overload "+"
 	//overload "+="
 	//overload "*"

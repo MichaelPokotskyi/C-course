@@ -63,6 +63,45 @@ Mystring Mystring :: operator-() const {
 	return temp;
 }
 
+//Overload "==" opeartor
+bool &Mystring :: operator==(const Mystring &rhs) {
+	//char *buf1 = new char[strlen(this->str)];
+	bool tt = true;
+	if (strcmp(this->str, rhs.str) != 0) 
+	{
+		return tt;
+	}
+	else 
+	{
+		tt = false;
+		return tt;
+	}
+}
+
+//Overload "!=" opeartor
+bool& Mystring :: operator!=(const Mystring& rhs) {
+	bool tt = true;
+	if (strcmp(this->str, rhs.str) == 0)
+	{
+		return tt;
+	}
+	else
+	{
+		tt = false;
+		return tt;
+	}
+}
+
+//Overload "<" opeartor
+bool& Mystring :: operator<(const Mystring& rhs) {
+
+}
+
+//Overload ">" opeartor
+bool& Mystring :: operator>(const Mystring& rhs) {
+
+}
+
 //Getters implementation
 void Mystring::display() const {
 	cout << str << " : " << get_length() << endl;
