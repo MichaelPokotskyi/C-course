@@ -82,8 +82,11 @@ int main()
     Mystring c{ "HELLO" };
     bool x = (a == b);
     bool r = (c == b);
-    cout << boolalpha << x;
-    cout << boolalpha << r;
+    cout << boolalpha << x << endl;
+    cout << boolalpha << r << endl;
+
+    Mystring h{ a + b };
+    h.display();
 
 }
 

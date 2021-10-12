@@ -39,8 +39,8 @@ Mystring::Mystring(Mystring&& source) : str{source.str} {
 Mystring::~Mystring() {
 	delete [] str;
 }
-//Overloads as member functions:
-//Overload "=" opeartor
+//Overloads as MEMBER FUNCTIONS:
+//Overload "=" opeartor (assignment)
 Mystring &Mystring::operator=(const Mystring &rhs) {
 if (this == &rhs) {
 		return *this;
@@ -51,7 +51,7 @@ if (this == &rhs) {
 	return *this;
 }
 
-//Overload "-" opeartor
+//Overload "-" opeartor (unary minus)
 Mystring Mystring :: operator-() const {
 	char* buf = new char[strlen(str) + 1];
 	strcpy(buf, str);
@@ -63,7 +63,7 @@ Mystring Mystring :: operator-() const {
 	return temp;
 }
 
-//Overload "==" opeartor
+//Overload "==" opeartor (equal)
 bool &Mystring :: operator==(const Mystring &rhs) {
 	//char *buf1 = new char[strlen(this->str)];
 	bool tt = true;
@@ -78,7 +78,7 @@ bool &Mystring :: operator==(const Mystring &rhs) {
 	}
 }
 
-//Overload "!=" opeartor
+//Overload "!=" opeartor (not equal)
 bool& Mystring :: operator!=(const Mystring& rhs) {
 	bool tt = true;
 	if (strcmp(this->str, rhs.str) == 0)
@@ -92,15 +92,43 @@ bool& Mystring :: operator!=(const Mystring& rhs) {
 	}
 }
 
-//Overload "<" opeartor
+//Overload "<" opeartor (lexically greater)
 bool& Mystring :: operator<(const Mystring& rhs) {
-
+	bool tt = true;
+	if (this->str < rhs.str) 
+	{
+		return tt;
+	}
+	else 
+	{
+		tt = false;
+		return tt;
+	}
 }
 
-//Overload ">" opeartor
+//Overload ">" opeartor (lexically less)
 bool& Mystring :: operator>(const Mystring& rhs) {
-
+	bool tt = true;
+	if (this->str > rhs.str)
+	{
+		return tt;
+	}
+	else
+	{
+		tt = false;
+		return tt;
+	}
 }
+
+//Overload "+" operator (concatenation)
+Mystring& Mystring::operator+(const Mystring& rhs) {
+	Mystring ret{strcpy(this->str, rhs.str)};
+	return ret;
+}
+
+//Overload "+=" operator (concatenation)
+//Overload "*" operator (repeat)
+//Overload "*=" operator (repeat)
 
 //Getters implementation
 void Mystring::display() const {
