@@ -131,16 +131,8 @@ Mystring &Mystring::operator+(const Mystring& rhs) {
 	cout << tt << endl;
 	
 	char *buf = new char[tt]; // if TT then strlen=20
-	for (int i = 0; i < tt; i++)
+	for (buf = this->str; *buf != 0; buf++)
 	{
-		if (i < strlen(this->str))
-		{
-			buf[i] = this->str[i]; 
-		}
-		else if (i > strlen(this->str))
-		{
-			buf[i] = rhs.str[i];
-		}
 	}
 	buf[tt]='\0';
 	//strcpy(buf, rhs.str);
