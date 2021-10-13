@@ -27,7 +27,7 @@ Mystring::Mystring(const char* s) : str{nullptr} {
 
 //Copy constructor
 Mystring::Mystring(const Mystring &source) : str{nullptr} {
-	str = new char[strlen(str) + 1];
+	str = new char[strlen(source.str) + 1];
 	strcpy(str, source.str);
 }
 
@@ -122,8 +122,39 @@ bool& Mystring :: operator>(const Mystring& rhs) {
 }
 
 //Overload "+" operator (concatenation)
-Mystring& Mystring::operator+(const Mystring& rhs) {
-	Mystring ret{strcpy(this->str, rhs.str)};
+Mystring &Mystring::operator+(const Mystring& rhs) {
+	cout << this->str << endl;
+	cout << strlen(this->str) << endl;
+	cout << rhs.str << endl;
+	cout << strlen(rhs.str) << endl;
+	int tt = strlen(this->str) + strlen(rhs.str);
+	cout << tt << endl;
+	
+	char *buf = new char[tt]; // if TT then strlen=20
+	for (int i = 0; i < tt; i++)
+	{
+		if (i < strlen(this->str))
+		{
+			buf[i] = this->str[i]; 
+		}
+		else if (i > strlen(this->str))
+		{
+			buf[i] = rhs.str[i];
+		}
+	}
+	buf[tt]='\0';
+	//strcpy(buf, rhs.str);
+	cout << buf << endl;
+	
+	
+
+	
+	/*
+	str = new char[strlen(rhs.str) + 1];
+	strcpy(this->str, rhs.str);
+	return *this;
+	*/
+	Mystring ret{};
 	return ret;
 }
 

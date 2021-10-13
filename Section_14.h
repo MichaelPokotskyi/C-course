@@ -11,7 +11,7 @@ private:
 
 public:
 	Mystring(); // no-args constructor
-	Mystring(const char* s); // overloaded constructor
+	Mystring(const char* s); // string constructor
 	Mystring(const Mystring &source); // copy constructor
 	Mystring(Mystring &&source);// move constructor
 	~Mystring(); // destructor
