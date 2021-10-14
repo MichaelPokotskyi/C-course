@@ -144,8 +144,13 @@ Mystring Mystring::operator+(const Mystring& rhs) {
 }
 
 //Overload "+=" operator (concatenation)
+Mystring Mystring::operator+=(const Mystring& rhs) {}
+
 //Overload "*" operator (repeat)
+Mystring Mystring::operator*(const Mystring& rhs) {}
+
 //Overload "*=" operator (repeat)
+Mystring Mystring::operator*=(const Mystring& rhs) {}
 
 //Getters implementation
 void Mystring::display() const {
