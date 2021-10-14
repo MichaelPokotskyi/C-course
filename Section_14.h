@@ -44,7 +44,7 @@ public:
 	Mystring operator+=(const Mystring& rhs);
 
 	//overload "*"
-	Mystring operator*(const Mystring& rhs);
+	Mystring operator*(const int &a);
 
 	//overload "*="
 	Mystring operator*=(const Mystring& rhs);

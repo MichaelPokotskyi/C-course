@@ -164,7 +164,7 @@ Mystring Mystring::operator+=(const Mystring& rhs) {
 }
 
 //Overload "*" operator (repeat)
-Mystring Mystring::operator*(const Mystring& rhs) {
+Mystring Mystring::operator*(const int &a) {
 	Mystring ret{};
 	return ret;
 }
