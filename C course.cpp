@@ -75,19 +75,19 @@ int main()
     Mystring stooge{ larry }; // copy constructor*/
 
     Mystring a{ "HELLO" };
-    //a.display();
-    //a = -a;
-    //a.display();
+    a.display();
+    a = -a;
+    a.display();
     Mystring b{ "YOU" };
-    //b.display();
-    //Mystring c{ "HELLO" };
-    //bool x = (a == b);
-    //bool r = (c == b);
-    //cout << boolalpha << x << endl;
-    //cout << boolalpha << r << endl;
-    Mystring h{a + b};
+    b.display();
+    Mystring c{ "HELLO" };
+    bool x{ a == b }; // hello with YOU
+    bool r{ c == c }; // HELLO with HELLO
+    cout << boolalpha << x << endl;
+    cout << boolalpha << r << endl;
+    Mystring h{a + b + c};
     h.display();
-    Mystring f { a += b };
+    Mystring f { a += b += c};
     f.display();
 }
 

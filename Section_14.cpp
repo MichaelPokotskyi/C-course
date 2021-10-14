@@ -68,7 +68,7 @@ Mystring Mystring :: operator-() const {
 bool &Mystring :: operator==(const Mystring &rhs) {
 	//char *buf1 = new char[strlen(this->str)];
 	bool tt = true;
-	if (strcmp(this->str, rhs.str) != 0) 
+	if (strcmp(this->str, rhs.str) == 0) 
 	{
 		return tt;
 	}
@@ -148,9 +148,9 @@ Mystring Mystring::operator+=(const Mystring& rhs) {
 	int count{ 0 };
 	for (int i = 0; i < strlen(this->str); i++)
 	{
-	con[i] = this->str[i];
-	con[i + strlen(this->str)] = this->str[i];
-	count+=2;
+	con[i] = this->str[i]; // first symbol
+	con[i + strlen(this->str)] = this->str[i];// second symbol
+	count+=2; // step plus two
 	}
 	for (int i = 0; i < strlen(rhs.str); i++)
 	{
