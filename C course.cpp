@@ -87,7 +87,8 @@ int main()
     //cout << boolalpha << r << endl;
     Mystring h{a + b};
     h.display();
-
+    Mystring f { a += b };
+    f.display();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

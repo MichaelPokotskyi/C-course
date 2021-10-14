@@ -123,8 +123,7 @@ bool& Mystring :: operator>(const Mystring& rhs) {
 
 //Overload "+" operator (concatenation)
 Mystring Mystring::operator+(const Mystring& rhs) {
-	int tt = strlen(this->str) + strlen(rhs.str);
-	char *con = new char[tt]; 
+	char *con = new char[strlen(this->str) + strlen(rhs.str)];
 	int count{0};
 	for (int i = 0; i < strlen(this->str); i++)
 	{
@@ -144,13 +143,37 @@ Mystring Mystring::operator+(const Mystring& rhs) {
 }
 
 //Overload "+=" operator (concatenation)
-Mystring Mystring::operator+=(const Mystring& rhs) {}
+Mystring Mystring::operator+=(const Mystring& rhs) {
+	char* con = new char[(strlen(this->str) * 2) + strlen(rhs.str)];
+	int count{ 0 };
+	for (int i = 0; i < strlen(this->str); i++)
+	{
+	con[i] = this->str[i];
+	con[i + strlen(this->str)] = this->str[i];
+	count+=2;
+	}
+	for (int i = 0; i < strlen(rhs.str); i++)
+	{
+		con[count] = rhs.str[i];
+		count++;
+	}
+	con[count] = '\0';
+	Mystring ret{ con };
+	return ret;
+	delete[] con;
+}
 
 //Overload "*" operator (repeat)
-Mystring Mystring::operator*(const Mystring& rhs) {}
+Mystring Mystring::operator*(const Mystring& rhs) {
+	Mystring ret{};
+	return ret;
+}
 
 //Overload "*=" operator (repeat)
-Mystring Mystring::operator*=(const Mystring& rhs) {}
+Mystring Mystring::operator*=(const Mystring& rhs) {
+	Mystring ret{};
+	return ret;
+}
 
 //Getters implementation
 void Mystring::display() const {
