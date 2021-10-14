@@ -137,8 +137,7 @@ Mystring Mystring::operator+(const Mystring& rhs) {
 		count++;
 	}
 	con[count] = '\0';
-	cout << con << endl;
-	
+
 	Mystring ret{ con };
 	return ret;
 	delete[] con;
