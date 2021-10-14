@@ -38,7 +38,7 @@ public:
 	bool& operator>(const Mystring& rhs);
 
 	//overload "+"
-	Mystring &operator+(const Mystring& rhs);
+	Mystring operator+(const Mystring& rhs);
 
 	//overload "+="
 	//overload "*"

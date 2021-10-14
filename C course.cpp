@@ -86,7 +86,7 @@ int main()
     //cout << boolalpha << x << endl;
     //cout << boolalpha << r << endl;
     Mystring h{a + b};
-    //h.display();
+    h.display();
 
 }
 

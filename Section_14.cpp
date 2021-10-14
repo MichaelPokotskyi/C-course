@@ -122,32 +122,26 @@ bool& Mystring :: operator>(const Mystring& rhs) {
 }
 
 //Overload "+" operator (concatenation)
-Mystring &Mystring::operator+(const Mystring& rhs) {
-	cout << this->str << endl;
-	cout << strlen(this->str) << endl;
-	cout << rhs.str << endl;
-	cout << strlen(rhs.str) << endl;
+Mystring Mystring::operator+(const Mystring& rhs) {
 	int tt = strlen(this->str) + strlen(rhs.str);
-	cout << tt << endl;
-	
-	char *buf = new char[tt]; // if TT then strlen=20
-	for (buf = this->str; *buf != 0; buf++)
+	char *con = new char[tt]; 
+	int count{0};
+	for (int i = 0; i < strlen(this->str); i++)
 	{
+		con[i] = this->str[i];
+		count++;
 	}
-	buf[tt]='\0';
-	//strcpy(buf, rhs.str);
-	cout << buf << endl;
+	for (int i = 0; i < strlen(rhs.str); i++) 
+	{
+		con[count] = rhs.str[i];
+		count++;
+	}
+	con[count] = '\0';
+	cout << con << endl;
 	
-	
-
-	
-	/*
-	str = new char[strlen(rhs.str) + 1];
-	strcpy(this->str, rhs.str);
-	return *this;
-	*/
-	Mystring ret{};
+	Mystring ret{ con };
 	return ret;
+	delete[] con;
 }
 
 //Overload "+=" operator (concatenation)
@@ -156,7 +150,7 @@ Mystring &Mystring::operator+(const Mystring& rhs) {
 
 //Getters implementation
 void Mystring::display() const {
-	cout << str << " : " << get_length() << endl;
+	cout << this->str << " : " << get_length() << endl;
 }
 
 int Mystring::get_length() const {
