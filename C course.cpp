@@ -76,18 +76,28 @@ int main()
 
     Mystring a{ "HELLO" };
     a.display();
+
     a = -a;
     a.display();
+
     Mystring b{ "YOU" };
     b.display();
+
     Mystring c{ "HELLO" };
+    c = -c;
+
     bool x{ a == b }; // hello with YOU
-    bool r{ c == c }; // HELLO with HELLO
+    bool r{ a == c }; // hello with hello
     cout << boolalpha << x << endl;
     cout << boolalpha << r << endl;
+
     Mystring h{a + b + c};
     h.display();
-    Mystring f { a += b += c};
+
+    Mystring f{ h += h };
+    f.display();
+
+    f = a * 2;
     f.display();
 }
 

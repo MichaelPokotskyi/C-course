@@ -145,11 +145,11 @@ Mystring Mystring::operator+(const Mystring& rhs) {
 //Overload "+=" operator (concatenation)
 Mystring Mystring::operator+=(const Mystring& rhs) {
 	char* con = new char[(strlen(this->str) * 2) + strlen(rhs.str)];
-	int count{ 0 };
+	int count{0};
 	for (int i = 0; i < strlen(this->str); i++)
 	{
 	con[i] = this->str[i]; // first symbol
-	con[i + strlen(this->str)] = this->str[i];// second symbol
+	con[i + strlen(this->str)] = this->str[i];// second first symbol
 	count+=2; // step plus two
 	}
 	for (int i = 0; i < strlen(rhs.str); i++)
@@ -165,8 +165,22 @@ Mystring Mystring::operator+=(const Mystring& rhs) {
 
 //Overload "*" operator (repeat)
 Mystring Mystring::operator*(const int &a) {
-	Mystring ret{};
+	int count{ 0 };
+	//check if a = 0 or < 0
+	char* con = new char[strlen(this->str) * a];
+	for (int i = 0; i < a; i++)
+	{
+		for (int j = 0; j < strlen(this->str); j++) 
+		{
+			con[j] = this->str[j];
+			count++;
+		}
+		count++;
+	}
+	con[count] = '\0';
+	Mystring ret{con};
 	return ret;
+	delete[]con;
 }
 
 //Overload "*=" operator (repeat)
