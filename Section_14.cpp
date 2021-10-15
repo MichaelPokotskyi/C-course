@@ -167,21 +167,27 @@ Mystring Mystring::operator+=(const Mystring& rhs) {
 Mystring Mystring::operator*(const int &a) {
 	int count{ 0 };
 	//check if a = 0 or < 0
-	char* con = new char[strlen(this->str) * a];
-
-	for (int i = 0; i < a; i++)
+	if (a <= 0 ) 
 	{
-		for (int j = 0; j < strlen(this->str); j++) 
-		{
-			con[count] = this->str[j];
-			count++;
-		}
-		//count++;
+		cout << "Cannot multiply by value <= 0" << endl;
+			return *this;
 	}
-	con[count] = '\0';
-	Mystring ret{con};
-	return ret;
-	delete[]con;
+	else {
+		char* con = new char[strlen(this->str) * a];
+
+		for (int i = 0; i < a; i++)
+		{
+			for (int j = 0; j < strlen(this->str); j++)
+			{
+				con[count] = this->str[j];
+				count++;
+			}
+		}
+		con[count] = '\0';
+		Mystring ret{ con };
+		return ret;
+		delete[]con;
+	}
 }
 
 //Overload "*=" operator (repeat)
