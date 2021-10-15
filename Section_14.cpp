@@ -35,7 +35,7 @@ Mystring::Mystring(const Mystring &source) : str{nullptr} {
 Mystring::Mystring(Mystring&& source) : str{source.str} {
 	source.str = nullptr;
 }
-
+ 
 //Destructor
 Mystring::~Mystring() {
 	delete [] str;
