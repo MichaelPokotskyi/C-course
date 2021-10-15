@@ -97,7 +97,7 @@ int main()
     Mystring f{ h += h };
     f.display();
 
-    f = a * 2;
+    f = a * 5;
     f.display();
 }
 

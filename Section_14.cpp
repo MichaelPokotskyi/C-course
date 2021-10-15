@@ -168,14 +168,15 @@ Mystring Mystring::operator*(const int &a) {
 	int count{ 0 };
 	//check if a = 0 or < 0
 	char* con = new char[strlen(this->str) * a];
+
 	for (int i = 0; i < a; i++)
 	{
 		for (int j = 0; j < strlen(this->str); j++) 
 		{
-			con[j] = this->str[j];
+			con[count] = this->str[j];
 			count++;
 		}
-		count++;
+		//count++;
 	}
 	con[count] = '\0';
 	Mystring ret{con};
