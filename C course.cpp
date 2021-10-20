@@ -14,12 +14,14 @@ using namespace std;
 #include "Section_12.h"
 #include "Section_13.h"
 #include "Section_14.h"
+#include "Section_15.h"
 #include "Movie.h"
 #include "Movies.h"
 
 
 int main()
 {
+    // Assignments 1-13
     //Small section assignments 
     //Second();
     //FCCServ();
@@ -48,7 +50,7 @@ int main()
     m.display();*/
     
 
-    // pointers and ref practice;
+    // Pointers and Ref practice;
     /*int a{ 10 }, b{15}, *p{ nullptr }, * n{ nullptr };
     p = new int;
     p = &a;
@@ -70,39 +72,36 @@ int main()
     cout << a << " " << *p << endl;*/
 
         
-    /*Mystring empty; // no args constructor
-    Mystring larry("Larry"); // overloaded constructor
-    Mystring stooge{ larry }; // copy constructor*/
-
+    
+    
+    // Section 14 operators overload test code:
+    /*
     Mystring a{ "HELLO" };
     a.display();
-
     a = -a;
     a.display();
-
     Mystring b{ "YOU" };
     b.display();
-
     Mystring c{ "HELLO" };
     c = -c;
-
     bool x{ a == b }; // hello with YOU
     bool r{ a == c }; // hello with hello
     cout << boolalpha << x << endl;
     cout << boolalpha << r << endl;
-
     Mystring h{a + b + c};
     h.display();
-
     Mystring f{ h += h };
     f.display();
-
     f = a * 5;
     f.display();
     f = ++f;
     f.display();
     f = --f;
     f.display();
+    */
+
+    // Section 15 test code
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

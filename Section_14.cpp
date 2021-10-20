@@ -41,7 +41,7 @@ Mystring::~Mystring() {
 	delete [] str;
 }
 
-//Example Overload as GLOBAL FUNCTIONS:
+//Example Overload as GLOBAL (FRIEND) FUNCTIONS:
 //overload "++"
 Mystring operator++(const Mystring& rhs) {
 	char* buf = new char[strlen(rhs.str) + 1];

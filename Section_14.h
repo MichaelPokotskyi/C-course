@@ -49,7 +49,7 @@ public:
 	//overload "*="
 	Mystring operator*=(const Mystring& rhs);
 
-	//Example overload as GLOBAL FUNCTIONS:
+	//Example overload as GLOBAL (FRIEND) FUNCTIONS:
 	//overload "++"
 	friend Mystring operator++(const Mystring& rhs);
 
