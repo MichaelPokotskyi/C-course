@@ -99,6 +99,10 @@ int main()
 
     f = a * 5;
     f.display();
+    f = ++f;
+    f.display();
+    f = --f;
+    f.display();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

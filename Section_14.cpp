@@ -42,6 +42,7 @@ Mystring::~Mystring() {
 }
 
 //Example Overload as GLOBAL FUNCTIONS:
+//overload "++"
 Mystring operator++(const Mystring& rhs) {
 	char* buf = new char[strlen(rhs.str) + 1];
 	strcpy(buf, rhs.str);
@@ -52,7 +53,7 @@ Mystring operator++(const Mystring& rhs) {
 	delete[] buf;
 	return temp;
 }
-
+//overload "--"
 Mystring operator--(const Mystring& rhs) {
 	char* buf = new char[strlen(rhs.str) + 1];
 	strcpy(buf, rhs.str);
@@ -63,7 +64,6 @@ Mystring operator--(const Mystring& rhs) {
 	delete[] buf;
 	return temp;
 }
-
 
 //Overloads as MEMBER FUNCTIONS:
 //Overload "=" opeartor (assignment)
