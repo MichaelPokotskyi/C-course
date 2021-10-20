@@ -49,10 +49,12 @@ public:
 	//overload "*="
 	Mystring operator*=(const Mystring& rhs);
 
+	//Example overload as GLOBAL FUNCTIONS:
 	//overload "++"
-	friend Mystring operator++( )
-	//overload "--"
+	friend Mystring operator++(const Mystring& rhs);
 
+	//overload "--"
+	friend Mystring operator--(const Mystring& rhs);
 
 	void display() const;
 	int get_length() const; // getters

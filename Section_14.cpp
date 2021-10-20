@@ -42,8 +42,27 @@ Mystring::~Mystring() {
 }
 
 //Example Overload as GLOBAL FUNCTIONS:
+Mystring operator++(const Mystring& rhs) {
+	char* buf = new char[strlen(rhs.str) + 1];
+	strcpy(buf, rhs.str);
+	for (size_t i = 0; i < strlen(buf); i++) {
+		buf[i] = toupper(buf[i]);
+	}
+	Mystring temp{ buf };
+	delete[] buf;
+	return temp;
+}
 
-
+Mystring operator--(const Mystring& rhs) {
+	char* buf = new char[strlen(rhs.str) + 1];
+	strcpy(buf, rhs.str);
+	for (size_t i = 0; i < strlen(buf); i++) {
+		buf[i] = tolower(buf[i]);
+	}
+	Mystring temp{ buf };
+	delete[] buf;
+	return temp;
+}
 
 
 //Overloads as MEMBER FUNCTIONS:
