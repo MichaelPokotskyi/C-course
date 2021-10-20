@@ -40,6 +40,12 @@ Mystring::Mystring(Mystring&& source) : str{source.str} {
 Mystring::~Mystring() {
 	delete [] str;
 }
+
+//Example Overload as GLOBAL FUNCTIONS:
+
+
+
+
 //Overloads as MEMBER FUNCTIONS:
 //Overload "=" opeartor (assignment)
 Mystring &Mystring::operator=(const Mystring &rhs) {

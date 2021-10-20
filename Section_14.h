@@ -50,6 +50,7 @@ public:
 	Mystring operator*=(const Mystring& rhs);
 
 	//overload "++"
+	friend Mystring operator++( )
 	//overload "--"
 
 
