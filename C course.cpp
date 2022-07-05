@@ -31,7 +31,7 @@ int main()
     //Crypto();
     //Stars();
     //startNumbers();
-    //s12();
+    s12();
     
      
     //Moovie assignment
