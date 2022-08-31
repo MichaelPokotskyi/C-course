@@ -70,9 +70,7 @@ private:
     static constexpr double def_balance = 0.0;
     static constexpr double fees = 1.5;
 public:
-
-    //bool Deposit(double amount);
-
+    Checking_Account();
 };
 
 class Trust_Account : public Account {
