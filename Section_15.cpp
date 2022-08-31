@@ -34,8 +34,6 @@ void s15() {
     withdraw(sav_accounts, 2000);
 
     cin >> str;
-
-    return 0;
 }
 
 

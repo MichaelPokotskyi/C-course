@@ -28,19 +28,6 @@ public:
     double get_balance() const;
 };
 
-// Account_Util.h ****
-// Utility helper functions for Account class
-
-void display(const std::vector<Account>& accounts);
-void deposit(std::vector<Account>& accounts, double amount);
-void withdraw(std::vector<Account>& accounts, double amount);
-
-// Utility helper functions for Savings Account class
-
-void display(const std::vector<Savings_Account>& accounts);
-void deposit(std::vector<Savings_Account>& accounts, double amount);
-void withdraw(std::vector<Savings_Account>& accounts, double amount);
-
 // Savings_Account.h ****
 // Savings Account is a type of Account
 //   adds an interest rate
@@ -64,5 +51,17 @@ public:
     // Inherits the Account::withdraw methods
 };
 
+// Account_Util.h ****
+// Utility helper functions for Account class
+
+void display(const std::vector<Account>& accounts);
+void deposit(std::vector<Account>& accounts, double amount);
+void withdraw(std::vector<Account>& accounts, double amount);
+
+// Utility helper functions for Savings Account class
+
+void display(const std::vector<Savings_Account>& accounts);
+void deposit(std::vector<Savings_Account>& accounts, double amount);
+void withdraw(std::vector<Savings_Account>& accounts, double amount);
 
 #endif
