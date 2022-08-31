@@ -2,13 +2,16 @@
 #ifndef _Section_15_H_
 #define _Section_15_H_
 
-using namespace std;
-
-// Account.h ****
-
 #include <iostream>
 #include <string>
+#include <vector>
 
+using namespace std;
+
+// Running by S15() from main ->
+void s15();
+
+// Account.h ****
 class Account {
     friend std::ostream& operator<<(std::ostream& os, const Account& account);
 private:
@@ -26,10 +29,6 @@ public:
 };
 
 // Account_Util.h ****
-#include <vector>
-//#include "Account.h"
-//#include "Savings_Account.h"
-
 // Utility helper functions for Account class
 
 void display(const std::vector<Account>& accounts);
@@ -47,8 +46,8 @@ void withdraw(std::vector<Savings_Account>& accounts, double amount);
 //   adds an interest rate
 // Withdraw - same as a regular account
 // Deposit:
-//      Amount supplied to deposit will be incremented by (amount * int_rate/100) 
-//      and then the updated amount will be deposited
+// Amount supplied to deposit will be incremented by (amount * int_rate/100) 
+// and then the updated amount will be deposited
 //
 
 class Savings_Account : public Account {

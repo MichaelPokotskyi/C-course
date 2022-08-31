@@ -1,6 +1,11 @@
 #include <iostream>
 #include "Section_15.h"
 
+// Running by S15() from main ->
+
+void s15() {}
+
+
 //Account.cpp ****
 Account::Account(std::string name, double balance)
     : name{ name }, balance{ balance } {
