@@ -68,12 +68,14 @@ class Checking_Account : public Account {
 private:
     static constexpr const char* def_name = "Unnamed Checking Account";
     static constexpr double def_balance = 0.0;
-    static constexpr double fees = 1.5;
+    static constexpr double fee = 1.5;
 public:
-    Checking_Account();
+    Checking_Account(string name = def_name, double balance = def_balance, double fee = fee);
+    bool widthraw(double widthraw);
 };
 
 class Trust_Account : public Account {
+    friend ostream& operator<<(ostream& os, const Savings_Account& account);
 
 };
 
