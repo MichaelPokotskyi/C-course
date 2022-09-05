@@ -3,6 +3,8 @@
 #include <string>
 #include "Section_15.h"
 
+using namespace std;
+
 // Running by S15() from main ->
 
 void s15() {
@@ -108,29 +110,29 @@ void display(const std::vector<Savings_Account>& accounts) {
 }
 
 // Deposits supplied amount to each Savings Account object in the vector
-void deposit(std::vector<Savings_Account>& accounts, double amount) {
+void deposit(vector<Savings_Account>& accounts, double amount) {
     std::cout << "\n=== Depositing to Savings Accounts ==========================" << std::endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
-            std::cout << "Deposited " << amount << " to " << acc << std::endl;
+            cout << "Deposited " << amount << " to " << acc << std::endl;
         else
-            std::cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+            cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
     }
 }
 
 // Withdraw supplied amount from each Savings Account object in the vector
-void withdraw(std::vector<Savings_Account>& accounts, double amount) {
+void withdraw(vector<Savings_Account>& accounts, double amount) {
     std::cout << "\n=== Withdrawing from Savings Accounts ======================" << std::endl;
     for (auto& acc : accounts) {
         if (acc.withdraw(amount))
-            std::cout << "Withdrew " << amount << " from " << acc << std::endl;
+            cout << "Withdrew " << amount << " from " << acc << std::endl;
         else
-            std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+            cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
     }
 }
 
 // Savings_Account.cpp****
-Savings_Account::Savings_Account(std::string name, double balance, double int_rate)
+Savings_Account::Savings_Account(string name, double balance, double int_rate)
     : Account{ name, balance }, int_rate{ int_rate } {
 }
 
@@ -143,7 +145,19 @@ bool Savings_Account::deposit(double amount) {
     return Account::deposit(amount);
 }
 
-std::ostream& operator<<(std::ostream& os, const Savings_Account& account) {
+std::ostream& operator<<(ostream& os, const Savings_Account& account) {
     os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "%]";
     return os;
 }
+
+
+//*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
+
+//Challenge section
+Checking_Account::Checking_Account(string name, double balance)
+    : Account{ name, balance } {
+}
+
+
+bool Checking_Account :: widthraw(double widthdraw)
+    : 

@@ -62,21 +62,30 @@ void display(const vector<Savings_Account>& accounts);
 void deposit(vector<Savings_Account>& accounts, double amount);
 void withdraw(vector<Savings_Account>& accounts, double amount);
 
+         //*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
+         
 //Challenge section
 class Checking_Account : public Account {
-    friend ostream& operator<<(ostream& os, const Savings_Account& account);
+    friend ostream& operator<<(ostream& os, const Checking_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Checking Account";
     static constexpr double def_balance = 0.0;
-    static constexpr double fee = 1.5;
+protected:
+    static constexpr double fees = 1.5;
 public:
-    Checking_Account(string name = def_name, double balance = def_balance, double fee = fee);
+    Checking_Account(string name = def_name, double balance = def_balance);
     bool widthraw(double widthraw);
 };
 
 class Trust_Account : public Account {
-    friend ostream& operator<<(ostream& os, const Savings_Account& account);
-
+    friend ostream& operator<<(ostream& os, const Trust_Account& account);
+private:
+    static constexpr const char* def_name = "Unnamed Trust Account";
+    static constexpr double def_balance = 0.0;
+    static constexpr double bonus = 50.0;
+public:
+    Trust_Account(string name = def_name, double balance = def_balance);
+    bool widthraw(double widthraw);
 };
 
 #endif
