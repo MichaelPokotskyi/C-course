@@ -8,8 +8,7 @@
 
 using namespace std;
 
-// Running by S15() from main ->
-void s15();
+
 
 // Account.h ****
 class Account {
@@ -18,11 +17,11 @@ private:
     static constexpr const char* def_name = "Unnamed Account";
     static constexpr double def_balance = 0.0;
 protected:
-    std::string name;
+    string name;
     double balance;
 public:
-    Account(std::string name = def_name, double balance = def_balance);
-    // Account(std::string name = "Unamed Account", double balance = 0.0);
+    Account(string name = def_name, double balance = def_balance);
+    //Account(string name = "Unamed Account", double balance = 0.0);
     bool deposit(double amount);
     bool withdraw(double amount);
     double get_balance() const;
@@ -49,6 +48,33 @@ public:
     // Inherits the Account::withdraw methods
 };
 
+//*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
+
+//Challenge section
+class Checking_Account : public Account {
+    friend ostream& operator<<(ostream& os, const Checking_Account& account);
+private:
+    static constexpr const char* def_name = "Unnamed Checking Account";
+    static constexpr double def_balance = 0.0;
+protected:
+    static constexpr double fees = 1.5;
+public:
+    Checking_Account(string name = def_name, double balance = def_balance);
+    bool withdraw(double widthraw);
+    bool deposit(double amount);
+};
+
+class Trust_Account : public Account {
+    friend ostream& operator<<(ostream& os, const Trust_Account& account);
+private:
+    static constexpr const char* def_name = "Unnamed Trust Account";
+    static constexpr double def_balance = 0.0;
+    static constexpr double bonus = 50.0;
+public:
+    Trust_Account(string name = def_name, double balance = def_balance);
+    bool withdraw(double widthraw);
+};
+
 // Account_Util.h ****
 // Utility helper functions for Account class
 
@@ -62,30 +88,14 @@ void display(const vector<Savings_Account>& accounts);
 void deposit(vector<Savings_Account>& accounts, double amount);
 void withdraw(vector<Savings_Account>& accounts, double amount);
 
-         //*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
+// Utility helper functions for Checking Account class
+
+void display(const vector<Checking_Account>& accounts);
+void deposit(vector<Checking_Account>& accounts, double amount);
+void withdraw(vector<Checking_Account>& accounts, double amount);
+
+// Running by S15() from main ->
+int s15();
          
-//Challenge section
-class Checking_Account : public Account {
-    friend ostream& operator<<(ostream& os, const Checking_Account& account);
-private:
-    static constexpr const char* def_name = "Unnamed Checking Account";
-    static constexpr double def_balance = 0.0;
-protected:
-    static constexpr double fees = 1.5;
-public:
-    Checking_Account(string name = def_name, double balance = def_balance);
-    bool widthraw(double widthraw);
-};
 
-class Trust_Account : public Account {
-    friend ostream& operator<<(ostream& os, const Trust_Account& account);
-private:
-    static constexpr const char* def_name = "Unnamed Trust Account";
-    static constexpr double def_balance = 0.0;
-    static constexpr double bonus = 50.0;
-public:
-    Trust_Account(string name = def_name, double balance = def_balance);
-    bool widthraw(double widthraw);
-};
-
-#endif
+#endif _Section_15_H_

@@ -5,38 +5,7 @@
 
 using namespace std;
 
-// Running by S15() from main ->
 
-void s15() {
-    cout.precision(2);
-    cout << fixed;
-    string str;
-
-    // Accounts
-    vector<Account> accounts;
-    accounts.push_back(Account{});
-    accounts.push_back(Account{ "Larry" });
-    accounts.push_back(Account{ "Moe", 2000 });
-    accounts.push_back(Account{ "Curly", 5000 });
-
-    display(accounts);
-    deposit(accounts, 1000);
-    withdraw(accounts, 2000);
-
-    // Savings 
-
-    vector<Savings_Account> sav_accounts;
-    sav_accounts.push_back(Savings_Account{});
-    sav_accounts.push_back(Savings_Account{ "Superman" });
-    sav_accounts.push_back(Savings_Account{ "Batman", 2000 });
-    sav_accounts.push_back(Savings_Account{ "Wonderwoman", 5000, 5.0 });
-
-    display(sav_accounts);
-    deposit(sav_accounts, 1000);
-    withdraw(sav_accounts, 2000);
-
-    cin >> str;
-}
 
 
 //Account.cpp ****
@@ -66,21 +35,21 @@ double Account::get_balance() const {
     return balance;
 }
 
-std::ostream& operator<<(std::ostream& os, const Account& account) {
+std::ostream& operator<<(ostream& os, const Account& account) {
     os << "[Account: " << account.name << ": " << account.balance << "]";
     return os;
 }
 
 // Account_Util.cpp****
 // Displays Account objects in a  vector of Account objects 
-void display(const std::vector<Account>& accounts) {
+void display(const vector<Account>& accounts) {
     std::cout << "\n=== Accounts ==========================================" << std::endl;
     for (const auto& acc : accounts)
         std::cout << acc << std::endl;
 }
 
 // Deposits supplied amount to each Account object in the vector
-void deposit(std::vector<Account>& accounts, double amount) {
+void deposit(vector<Account>& accounts, double amount) {
     std::cout << "\n=== Depositing to Accounts =================================" << std::endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
@@ -91,7 +60,7 @@ void deposit(std::vector<Account>& accounts, double amount) {
 }
 
 // Withdraw amount from each Account object in the vector
-void withdraw(std::vector<Account>& accounts, double amount) {
+void withdraw(vector<Account>& accounts, double amount) {
     std::cout << "\n=== Withdrawing from Accounts ==============================" << std::endl;
     for (auto& acc : accounts) {
         if (acc.withdraw(amount))
@@ -102,9 +71,16 @@ void withdraw(std::vector<Account>& accounts, double amount) {
 }
 
 // Helper functions for Savings Account class
-// Displays Savings Account objects in a  vector of Savings Account objects 
-void display(const std::vector<Savings_Account>& accounts) {
+// Displays Savings Account objects in a vector of Savings Account objects 
+void display(const vector<Savings_Account>& accounts) {
     std::cout << "\n=== Savings Accounts ====================================" << std::endl;
+    for (const auto& acc : accounts)
+        std::cout << acc << std::endl;
+}
+// Helper functions for Cheking Account class
+// Displays Cheking Account objects in a  vector of Cheking Account objects 
+void display(const vector<Checking_Account>& accounts) {
+    std::cout << "\n=== Checking Accounts ====================================" << std::endl;
     for (const auto& acc : accounts)
         std::cout << acc << std::endl;
 }
@@ -131,6 +107,22 @@ void withdraw(vector<Savings_Account>& accounts, double amount) {
     }
 }
 
+// Helper functions for Cheking_Account class
+void deposit(vector<Checking_Account>& accounts, double amount) {
+    std::cout << "\n=== Depositing to  Accounts ==========================" << std::endl;
+    for (auto& acc : accounts) {
+        if (acc.deposit(amount))
+            cout << "Deposited " << amount << " to " << acc << std::endl;
+        else
+            cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+    }
+}
+
+std::ostream& operator<<(ostream& os, const Savings_Account& account) {
+    os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "%]";
+    return os;
+}
+
 // Savings_Account.cpp****
 Savings_Account::Savings_Account(string name, double balance, double int_rate)
     : Account{ name, balance }, int_rate{ int_rate } {
@@ -145,10 +137,7 @@ bool Savings_Account::deposit(double amount) {
     return Account::deposit(amount);
 }
 
-std::ostream& operator<<(ostream& os, const Savings_Account& account) {
-    os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "%]";
-    return os;
-}
+
 
 
 //*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
@@ -159,5 +148,65 @@ Checking_Account::Checking_Account(string name, double balance)
 }
 
 
-bool Checking_Account :: widthraw(double widthdraw)
-    : 
+bool Checking_Account::withdraw(double widthdraw) {
+    if (balance - widthdraw >= 0) {
+        balance -= widthdraw;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool Checking_Account::deposit(double amount) {
+    //amount += amount;
+    return Account::deposit(amount);
+}
+
+std::ostream& operator<<(ostream& os, const Checking_Account& account) {
+    os << "[Checking_Account: " << account.name << ": " << account.balance << "]";
+    return os;
+}
+
+// Running by S15() from main ->
+
+int s15() {
+    cout.precision(2);
+    cout << fixed;
+    string str;
+
+    // Accounts
+    vector<Account> accounts;
+    accounts.push_back(Account{});
+    accounts.push_back(Account{ "Larry" });
+    accounts.push_back(Account{ "Moe", 2000 });
+    accounts.push_back(Account{ "Curly", 5000 });
+
+    display(accounts);
+    deposit(accounts, 1000);
+    withdraw(accounts, 2000);
+
+    // Savings 
+
+    vector<Savings_Account> sav_accounts;
+    sav_accounts.push_back(Savings_Account{});
+    sav_accounts.push_back(Savings_Account{ "Superman" });
+    sav_accounts.push_back(Savings_Account{ "Batman", 2000 });
+    sav_accounts.push_back(Savings_Account{ "Wonderwoman", 5000, 5.0 });
+
+    display(sav_accounts);
+    deposit(sav_accounts, 1000);
+    withdraw(sav_accounts, 2000);
+
+    vector<Checking_Account> ch_accounts;
+    ch_accounts.push_back(Checking_Account{});
+    ch_accounts.push_back(Checking_Account{ "S1" });
+    ch_accounts.push_back(Checking_Account{ "B2", 2000 });
+    ch_accounts.push_back(Checking_Account{ "W3", 5000 });
+
+    display(ch_accounts);
+    deposit(ch_accounts, 1000);
+    //withdraw(ch_accounts, 2000);
+
+    cin >> str;
+    return 0;
+}
