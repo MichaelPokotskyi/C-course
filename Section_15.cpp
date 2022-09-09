@@ -158,7 +158,6 @@ bool Checking_Account::withdraw(double widthdraw) {
 }
 
 bool Checking_Account::deposit(double amount) {
-    //amount += amount;
     return Account::deposit(amount);
 }
 
