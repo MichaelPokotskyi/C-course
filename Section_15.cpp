@@ -5,9 +5,6 @@
 
 using namespace std;
 
-
-
-
 //Account.cpp ****
 Account::Account(std::string name, double balance)
     : name{ name }, balance{ balance } {
@@ -109,12 +106,22 @@ void withdraw(vector<Savings_Account>& accounts, double amount) {
 
 // Helper functions for Cheking_Account class
 void deposit(vector<Checking_Account>& accounts, double amount) {
-    std::cout << "\n=== Depositing to  Accounts ==========================" << std::endl;
+    std::cout << "\n=== Depositing to Checking Accounts ==========================" << std::endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
             cout << "Deposited " << amount << " to " << acc << std::endl;
         else
             cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+    }
+}
+
+void withdraw(vector<Checking_Account>& accounts, double amount) {
+    std::cout << "\n=== Withdrawing from Checking Accounts ======================" << std::endl;
+    for (auto& acc : accounts) {
+        if (acc.withdraw(amount))
+            cout << "Withdrew " << amount << " from " << acc << std::endl;
+        else
+            cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
     }
 }
 
@@ -149,8 +156,8 @@ Checking_Account::Checking_Account(string name, double balance)
 
 
 bool Checking_Account::withdraw(double widthdraw) {
-    if (balance - widthdraw >= 0) {
-        balance -= widthdraw;
+    if (balance - (widthdraw + fees) >= 0) {
+        balance -= widthdraw + fees;
         return true;
     }
     else
@@ -204,8 +211,8 @@ int s15() {
 
     display(ch_accounts);
     deposit(ch_accounts, 1000);
-    //withdraw(ch_accounts, 2000);
+    withdraw(ch_accounts, 2000);
 
-    cin >> str;
+    //cin >> str;
     return 0;
 }
