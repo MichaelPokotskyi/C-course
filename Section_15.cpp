@@ -82,6 +82,14 @@ void display(const vector<Checking_Account>& accounts) {
         std::cout << acc << std::endl;
 }
 
+// Helper functions for Trust Account class
+// Displays Trust Account objects in a vector of Trust Account objects 
+void display(const vector<Trust_Account>& accounts) {
+    std::cout << "\n=== Trust Accounts ====================================" << std::endl;
+    for (const auto& acc : accounts)
+        std::cout << acc << std::endl;
+}
+
 // Deposits supplied amount to each Savings Account object in the vector
 void deposit(vector<Savings_Account>& accounts, double amount) {
     std::cout << "\n=== Depositing to Savings Accounts ==========================" << std::endl;
@@ -125,6 +133,27 @@ void withdraw(vector<Checking_Account>& accounts, double amount) {
     }
 }
 
+// Helper functions for Trust_Account class
+void deposit(vector<Trust_Account>& accounts, double amount) {
+    std::cout << "\n=== Depositing to Trust Accounts ==========================" << std::endl;
+    for (auto& acc : accounts) {
+        if (acc.deposit(amount))
+            cout << "Deposited " << amount << " to " << acc << std::endl;
+        else
+            cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+    }
+}
+
+void withdraw(vector<Trust_Account>& accounts, double amount) {
+    std::cout << "\n=== Withdrawing from Trust Accounts ======================" << std::endl;
+    for (auto& acc : accounts) {
+        if (acc.withdraw(amount))
+            cout << "Withdrew " << amount << " from " << acc << std::endl;
+        else
+            cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+    }
+}
+
 std::ostream& operator<<(ostream& os, const Savings_Account& account) {
     os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "%]";
     return os;
@@ -150,6 +179,7 @@ bool Savings_Account::deposit(double amount) {
 //*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
 
 //Challenge section
+//For Checking_Account
 Checking_Account::Checking_Account(string name, double balance)
     : Account{ name, balance } {
 }
@@ -170,6 +200,34 @@ bool Checking_Account::deposit(double amount) {
 
 std::ostream& operator<<(ostream& os, const Checking_Account& account) {
     os << "[Checking_Account: " << account.name << ": " << account.balance << "]";
+    return os;
+}
+
+//For Trust_Account
+Trust_Account::Trust_Account(string name, double balance)
+    : Account{ name, balance } {
+}
+
+//1.50 fees applied as in Checking Account, plus other rules
+bool Trust_Account::withdraw(double widthdraw) {
+    if (balance - (widthdraw + fees) >= 0 && widthdraw <= balance/3 && count <=2) {
+        balance -= widthdraw + fees;
+        count++;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool Trust_Account::deposit(double amount) {
+    if (amount >= 5000) {
+        amount += bonus;
+    }
+    return Account::deposit(amount);
+}
+
+std::ostream& operator<<(ostream& os, const Trust_Account& account) {
+    os << "[Trust_Account: " << account.name << ": " << account.balance << "]";
     return os;
 }
 
@@ -205,24 +263,30 @@ int s15() {
 
     vector<Checking_Account> ch_accounts;
     ch_accounts.push_back(Checking_Account{});
-    ch_accounts.push_back(Checking_Account{ "S1" });
-    ch_accounts.push_back(Checking_Account{ "B2", 2000 });
-    ch_accounts.push_back(Checking_Account{ "W3", 5000 });
+    ch_accounts.push_back(Checking_Account{ "Checking_1" });
+    ch_accounts.push_back(Checking_Account{ "Checking_2", 2000 });
+    ch_accounts.push_back(Checking_Account{ "Checking_3", 5000 });
 
     display(ch_accounts);
     deposit(ch_accounts, 1000);
     withdraw(ch_accounts, 2000);
 
-
-    vector<Trust_Account> ch_accounts;
-    ch_accounts.push_back(Trust_Account{});
-    ch_accounts.push_back(Trust_Account{ "Trust_1" });
-    ch_accounts.push_back(Trust_Account{ "Trust_2", 1000 });
-    ch_accounts.push_back(Trust_Account{ "Trust_3", 4000 });
-
-    display(ch_accounts);
-    deposit(ch_accounts, 1500);
-    //withdraw(ch_accounts, 2000);
+    vector<Trust_Account> tr_accounts;
+    tr_accounts.push_back(Trust_Account{});
+    tr_accounts.push_back(Trust_Account{ "Trust_1" });
+    tr_accounts.push_back(Trust_Account{ "Trust_2", 1000 });
+    tr_accounts.push_back(Trust_Account{ "Trust_3", 4000 });
+    
+    display(tr_accounts);
+    deposit(tr_accounts, 1500);
+    withdraw(tr_accounts, 2000);
+    
+    Trust_Account Trust_4{ "Trust_4", 40000 };
+    cout << Trust_4.withdraw(4000) << endl;
+    cout << Trust_4.withdraw(3000) << endl;
+    cout << Trust_4.withdraw(2000) << endl;
+    cout << Trust_4.withdraw(1000) << endl;
+    
 
     //cin >> str;
     return 0;

@@ -70,31 +70,35 @@ private:
     static constexpr const char* def_name = "Unnamed Trust Account";
     static constexpr double def_balance = 0.0;
     static constexpr double bonus = 50.0;
-    int count{};
+    static constexpr double fees = 1.5;
+protected:
+    int count{0};
 public:
     Trust_Account(string name = def_name, double balance = def_balance);
-
     bool withdraw(double widthraw);
+    bool deposit(double amount);
 };
 
 // Account_Util.h ****
 // Utility helper functions for Account class
-
-void display(const vector<Account>& accounts);
-void deposit(vector<Account>& accounts, double amount);
-void withdraw(vector<Account>& accounts, double amount);
+//void display(const vector<Account>& accounts);
+//void deposit(vector<Account>& accounts, double amount);
+//void withdraw(vector<Account>& accounts, double amount);
 
 // Utility helper functions for Savings Account class
-
-void display(const vector<Savings_Account>& accounts);
-void deposit(vector<Savings_Account>& accounts, double amount);
-void withdraw(vector<Savings_Account>& accounts, double amount);
+//void display(const vector<Savings_Account>& accounts);
+//void deposit(vector<Savings_Account>& accounts, double amount);
+//void withdraw(vector<Savings_Account>& accounts, double amount);
 
 // Utility helper functions for Checking Account class
+//void display(const vector<Checking_Account>& accounts);
+//void deposit(vector<Checking_Account>& accounts, double amount);
+//void withdraw(vector<Checking_Account>& accounts, double amount);
 
-void display(const vector<Checking_Account>& accounts);
-void deposit(vector<Checking_Account>& accounts, double amount);
-void withdraw(vector<Checking_Account>& accounts, double amount);
+// Utility helper functions for Trust Account class
+//void display(const vector<Trust_Account>& accounts);
+//void deposit(vector<Trust_Account>& accounts, double amount);
+//void withdraw(vector<Trust_Account>& accounts, double amount);
 
 // Running by S15() from main ->
 int s15();
