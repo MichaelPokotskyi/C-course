@@ -154,7 +154,7 @@ Checking_Account::Checking_Account(string name, double balance)
     : Account{ name, balance } {
 }
 
-
+//1.50 fees applied
 bool Checking_Account::withdraw(double widthdraw) {
     if (balance - (widthdraw + fees) >= 0) {
         balance -= widthdraw + fees;
@@ -178,7 +178,7 @@ std::ostream& operator<<(ostream& os, const Checking_Account& account) {
 int s15() {
     cout.precision(2);
     cout << fixed;
-    string str;
+    //string str;
 
     // Accounts
     vector<Account> accounts;
@@ -212,6 +212,17 @@ int s15() {
     display(ch_accounts);
     deposit(ch_accounts, 1000);
     withdraw(ch_accounts, 2000);
+
+
+    vector<Trust_Account> ch_accounts;
+    ch_accounts.push_back(Trust_Account{});
+    ch_accounts.push_back(Trust_Account{ "Trust_1" });
+    ch_accounts.push_back(Trust_Account{ "Trust_2", 1000 });
+    ch_accounts.push_back(Trust_Account{ "Trust_3", 4000 });
+
+    display(ch_accounts);
+    deposit(ch_accounts, 1500);
+    //withdraw(ch_accounts, 2000);
 
     //cin >> str;
     return 0;

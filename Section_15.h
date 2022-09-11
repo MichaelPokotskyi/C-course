@@ -70,8 +70,10 @@ private:
     static constexpr const char* def_name = "Unnamed Trust Account";
     static constexpr double def_balance = 0.0;
     static constexpr double bonus = 50.0;
+    int count{};
 public:
     Trust_Account(string name = def_name, double balance = def_balance);
+
     bool withdraw(double widthraw);
 };
 
