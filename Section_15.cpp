@@ -281,11 +281,12 @@ int s15() {
     deposit(tr_accounts, 1500);
     withdraw(tr_accounts, 2000);
     
-    Trust_Account Trust_4{ "Trust_4", 40000 };
-    cout << Trust_4.withdraw(4000) << endl;
-    cout << Trust_4.withdraw(3000) << endl;
-    cout << Trust_4.withdraw(2000) << endl;
-    cout << Trust_4.withdraw(1000) << endl;
+    vector<Trust_Account> trust_check_count;
+    trust_check_count.push_back(Trust_Account("Trust_Check_Count", 40000));
+    for (int i = 0; i < 5; ++i) {
+        withdraw(trust_check_count, 1000);
+    }
+    
     
 
     //cin >> str;
