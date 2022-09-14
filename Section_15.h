@@ -1,3 +1,4 @@
+/*
 #pragma once
 #ifndef _Section_15_H_
 #define _Section_15_H_
@@ -48,7 +49,7 @@ public:
     // Inherits the Account::withdraw methods
 };
 
-//*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*//
+
 
 //Challenge section
 class Checking_Account : public Account {
@@ -105,3 +106,4 @@ int s15();
          
 
 #endif _Section_15_H_
+*/
