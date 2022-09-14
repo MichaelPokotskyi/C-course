@@ -18,20 +18,17 @@
     <ClCompile Include="C course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Section16.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Section_15.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Section_14.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Movie.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="Movies.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Movie.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Section_14.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Section_15.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,9 +72,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Section_15.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Section16.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
