@@ -20,6 +20,7 @@ bool Account::deposit(double amount) {
 bool Account::withdraw(double amount) {
     if (balance - amount >= 0) {
         balance -= amount;
+        //cout << "This!";
         return true;
     }
     else
@@ -126,6 +127,17 @@ void withdraw(vector<Account>& accounts, double amount) {
     }
 }
 
+// 
+void withdraw(vector<Account*> accounts, double amount) {
+    cout << "\n=== Withdrawing from Accounts ==============================" << endl;
+for (auto acc : accounts) {
+        if ((*acc).withdraw(amount))
+            cout << "Withdrew " << amount << " from " << acc << endl;
+        else
+            cout << "Failed Withdrawal of " << amount << " from " << acc << endl;
+    }
+}
+
 // Helper functions for Savings Account class
 
 // Displays Savings Account objects in a  vector of Savings Account objects 
@@ -223,7 +235,21 @@ void withdraw(vector<Trust_Account>& accounts, double amount) {
 void s16() {
     cout.precision(2);
     cout << fixed;
+    Account* p1 = new Account("Acc", 2000);
+    Account* p2 = new Savings_Account("Sav_Acc", 2000);
+    Account* p3 = new Checking_Account("Check_Acc", 2000);
+    Account* p4 = new Trust_Account("Tr_Acc", 2000);
+    vector<Account*> acc {p1, p2, p3, p4}; // Base Class pointer VECTOR created
+    
+    withdraw(acc, 200.00);
+    
 
+       
+
+    
+
+
+    /*
     // Accounts
     vector<Account> accounts;
     accounts.push_back(Account{});
@@ -275,5 +301,6 @@ void s16() {
     // All withdrawals should fail if there are too many withdrawals or if the withdrawl is > 20% of the balance
     for (int i = 1; i <= 5; i++)
         withdraw(trust_accounts, 1000);
+        */
 
 }

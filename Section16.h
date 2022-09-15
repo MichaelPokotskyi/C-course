@@ -76,10 +76,10 @@ public:
 void s16();
 
 #endif _Section16_H_
-/*
+
 //Account_Util.h
 // Utility helper functions for Account class
-
+/*
 void display(const std::vector<Account>& accounts);
 void deposit(std::vector<Account>& accounts, double amount);
 void withdraw(std::vector<Account>& accounts, double amount);
