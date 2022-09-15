@@ -21,6 +21,7 @@ bool Account::withdraw(double amount) {
     if (balance - amount >= 0) {
         balance -= amount;
         //ONLY this function will be called for any object inherited from Account class (Base Class reference) by static polymorphism.
+        cout << "Account class withdraw function" << endl;
         return true;
     }
     else
@@ -39,6 +40,7 @@ Checking_Account::Checking_Account(string name, double balance)
 
 bool Checking_Account::withdraw(double amount) {
     amount += per_check_fee;
+    cout << "Checking Account class withdraw function" << endl;
     return Account::withdraw(amount);
 }
 
@@ -60,6 +62,8 @@ bool Savings_Account::deposit(double amount) {
     amount += amount * (int_rate / 100);
     return Account::deposit(amount);
 }
+
+//cout << "Account class withdraw function" << endl;
 
 ostream& operator<<(ostream& os, const Savings_Account& account) {
     os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "]";
@@ -85,6 +89,7 @@ bool Trust_Account::withdraw(double amount) {
         return false;
     else {
         ++num_withdrawals;
+        cout << "Trust Account class withdraw function" << endl;
         return Savings_Account::withdraw(amount);
     }
 }
@@ -134,7 +139,7 @@ void withdraw(vector<Account*> accounts, double amount) {
     cout << "\n=== Withdrawing from Accounts ==============================" << endl;
 for (auto acc : accounts) {
         if ((*acc).withdraw(amount))
-            cout << "Withdrew " << amount << " from " << *acc << endl;
+            cout << "Withdraw " << amount << " from " << *acc << endl;
         else
             cout << "Failed Withdrawal of " << amount << " from " << *acc << endl;
     }
