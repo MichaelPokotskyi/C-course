@@ -4,7 +4,7 @@
 using namespace std;
 
 //Accopunt.cpp
-Account::Account(std::string name, double balance)
+Account::Account(string name, double balance)
     : name{ name }, balance{ balance } {
 }
 
@@ -26,13 +26,13 @@ bool Account::withdraw(double amount) {
         return false;
 }
 
-std::ostream& operator<<(std::ostream& os, const Account& account) {
+ostream& operator<<(ostream& os, const Account& account) {
     os << "[Account: " << account.name << ": " << account.balance << "]";
     return os;
 }
 
 //Checking Account.cpp
-Checking_Account::Checking_Account(std::string name, double balance)
+Checking_Account::Checking_Account(string name, double balance)
     : Account{ name, balance } {
 }
 
@@ -41,13 +41,13 @@ bool Checking_Account::withdraw(double amount) {
     return Account::withdraw(amount);
 }
 
-std::ostream& operator<<(std::ostream& os, const Checking_Account& account) {
+ostream& operator<<(ostream& os, const Checking_Account& account) {
     os << "[Checking_Account: " << account.name << ": " << account.balance << "]";
     return os;
 }
 
 //Savings Account.cpp
-Savings_Account::Savings_Account(std::string name, double balance, double int_rate)
+Savings_Account::Savings_Account(string name, double balance, double int_rate)
     : Account{ name, balance }, int_rate{ int_rate } {
 }
 
@@ -60,13 +60,13 @@ bool Savings_Account::deposit(double amount) {
     return Account::deposit(amount);
 }
 
-std::ostream& operator<<(std::ostream& os, const Savings_Account& account) {
+ostream& operator<<(ostream& os, const Savings_Account& account) {
     os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "]";
     return os;
 }
 
 //Trust Accouint.cpp
-Trust_Account::Trust_Account(std::string name, double balance, double int_rate)
+Trust_Account::Trust_Account(string name, double balance, double int_rate)
     : Savings_Account{ name, balance, int_rate }, num_withdrawals{ 0 } {
 
 }
@@ -88,7 +88,7 @@ bool Trust_Account::withdraw(double amount) {
     }
 }
 
-std::ostream& operator<<(std::ostream& os, const Trust_Account& account) {
+ostream& operator<<(ostream& os, const Trust_Account& account) {
     os << "[Trust Account: " << account.name << ": " << account.balance << ", " << account.int_rate
         << "%, withdrawals: " << account.num_withdrawals << "]";
     return os;
@@ -98,124 +98,124 @@ std::ostream& operator<<(std::ostream& os, const Trust_Account& account) {
 
 //Account Util.cpp
 // Displays Account objects in a  vector of Account objects 
-void display(const std::vector<Account>& accounts) {
-    std::cout << "\n=== Accounts===========================================" << std::endl;
+void display(const vector<Account>& accounts) {
+    cout << "\n=== Accounts===========================================" << endl;
     for (const auto& acc : accounts)
-        std::cout << acc << std::endl;
+        cout << acc << endl;
 }
 
 // Deposits supplied amount to each Account object in the vector
-void deposit(std::vector<Account>& accounts, double amount) {
-    std::cout << "\n=== Depositing to Accounts =================================" << std::endl;
+void deposit(vector<Account>& accounts, double amount) {
+    cout << "\n=== Depositing to Accounts =================================" << endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
-            std::cout << "Deposited " << amount << " to " << acc << std::endl;
+            cout << "Deposited " << amount << " to " << acc << endl;
         else
-            std::cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+            cout << "Failed Deposit of " << amount << " to " << acc << endl;
     }
 }
 
 // Withdraw amount from each Account object in the vector
-void withdraw(std::vector<Account>& accounts, double amount) {
-    std::cout << "\n=== Withdrawing from Accounts ==============================" << std::endl;
+void withdraw(vector<Account>& accounts, double amount) {
+    cout << "\n=== Withdrawing from Accounts ==============================" << endl;
     for (auto& acc : accounts) {
         if (acc.withdraw(amount))
-            std::cout << "Withdrew " << amount << " from " << acc << std::endl;
+            cout << "Withdrew " << amount << " from " << acc << endl;
         else
-            std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+            cout << "Failed Withdrawal of " << amount << " from " << acc << endl;
     }
 }
 
 // Helper functions for Savings Account class
 
 // Displays Savings Account objects in a  vector of Savings Account objects 
-void display(const std::vector<Savings_Account>& accounts) {
-    std::cout << "\n=== Savings Accounts=====================================" << std::endl;
+void display(const vector<Savings_Account>& accounts) {
+    cout << "\n=== Savings Accounts=====================================" << endl;
     for (const auto& acc : accounts)
-        std::cout << acc << std::endl;
+        cout << acc << endl;
 }
 
 // Deposits supplied amount to each Savings Account object in the vector
-void deposit(std::vector<Savings_Account>& accounts, double amount) {
-    std::cout << "\n=== Depositing to Savings Accounts===========================" << std::endl;
+void deposit(vector<Savings_Account>& accounts, double amount) {
+    cout << "\n=== Depositing to Savings Accounts===========================" << endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
-            std::cout << "Deposited " << amount << " to " << acc << std::endl;
+            cout << "Deposited " << amount << " to " << acc << endl;
         else
-            std::cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+            cout << "Failed Deposit of " << amount << " to " << acc << endl;
     }
 }
 
 // Withdraw supplied amount from each Savings Account object in the vector
-void withdraw(std::vector<Savings_Account>& accounts, double amount) {
-    std::cout << "\n=== Withdrawing from Savings Accounts=======================" << std::endl;
+void withdraw(vector<Savings_Account>& accounts, double amount) {
+    cout << "\n=== Withdrawing from Savings Accounts=======================" << endl;
     for (auto& acc : accounts) {
         if (acc.withdraw(amount))
-            std::cout << "Withdrew " << amount << " from " << acc << std::endl;
+            cout << "Withdrew " << amount << " from " << acc << endl;
         else
-            std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+            cout << "Failed Withdrawal of " << amount << " from " << acc << endl;
     }
 }
 
 // Helper functions for Checking Account class
 
 // Displays Checking Account objects in a  vector of Checking Account objects 
-void display(const std::vector<Checking_Account>& accounts) {
-    std::cout << "\n=== Checking Accounts=====================================" << std::endl;
+void display(const vector<Checking_Account>& accounts) {
+    cout << "\n=== Checking Accounts=====================================" << endl;
     for (const auto& acc : accounts)
-        std::cout << acc << std::endl;
+        cout << acc << endl;
 }
 
 // Deposits supplied amount to each Checking Account object in the vector
-void deposit(std::vector<Checking_Account>& accounts, double amount) {
-    std::cout << "\n=== Depositing to Checking Accounts===========================" << std::endl;
+void deposit(vector<Checking_Account>& accounts, double amount) {
+    cout << "\n=== Depositing to Checking Accounts===========================" << endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
-            std::cout << "Deposited " << amount << " to " << acc << std::endl;
+            cout << "Deposited " << amount << " to " << acc << endl;
         else
-            std::cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+            cout << "Failed Deposit of " << amount << " to " << acc << endl;
     }
 }
 
 // Withdraw supplied amount from each Checking Account object in the vector
-void withdraw(std::vector<Checking_Account>& accounts, double amount) {
-    std::cout << "\n=== Withdrawing from Checking Accounts=======================" << std::endl;
+void withdraw(vector<Checking_Account>& accounts, double amount) {
+    cout << "\n=== Withdrawing from Checking Accounts=======================" << endl;
     for (auto& acc : accounts) {
         if (acc.withdraw(amount))
-            std::cout << "Withdrew " << amount << " from " << acc << std::endl;
+            cout << "Withdrew " << amount << " from " << acc << endl;
         else
-            std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+            cout << "Failed Withdrawal of " << amount << " from " << acc << endl;
     }
 }
 
 // Helper functions for Trust Account class
 
 // Displays Trust Account objects in a  vector of Trust Account objects 
-void display(const std::vector<Trust_Account>& accounts) {
-    std::cout << "\n=== Trust Accounts=====================================" << std::endl;
+void display(const vector<Trust_Account>& accounts) {
+    cout << "\n=== Trust Accounts=====================================" << endl;
     for (const auto& acc : accounts)
-        std::cout << acc << std::endl;
+        cout << acc << endl;
 }
 
 // Deposits supplied amount to each Trust Account object in the vector
-void deposit(std::vector<Trust_Account>& accounts, double amount) {
-    std::cout << "\n=== Depositing to Trust Accounts===========================" << std::endl;
+void deposit(vector<Trust_Account>& accounts, double amount) {
+    cout << "\n=== Depositing to Trust Accounts===========================" << endl;
     for (auto& acc : accounts) {
         if (acc.deposit(amount))
-            std::cout << "Deposited " << amount << " to " << acc << std::endl;
+            cout << "Deposited " << amount << " to " << acc << endl;
         else
-            std::cout << "Failed Deposit of " << amount << " to " << acc << std::endl;
+            cout << "Failed Deposit of " << amount << " to " << acc << endl;
     }
 }
 
 // Withdraw supplied amount from each Trust Account object in the vector
-void withdraw(std::vector<Trust_Account>& accounts, double amount) {
-    std::cout << "\n=== Withdrawing from Trust Accounts=======================" << std::endl;
+void withdraw(vector<Trust_Account>& accounts, double amount) {
+    cout << "\n=== Withdrawing from Trust Accounts=======================" << endl;
     for (auto& acc : accounts) {
         if (acc.withdraw(amount))
-            std::cout << "Withdrew " << amount << " from " << acc << std::endl;
+            cout << "Withdrew " << amount << " from " << acc << endl;
         else
-            std::cout << "Failed Withdrawal of " << amount << " from " << acc << std::endl;
+            cout << "Failed Withdrawal of " << amount << " from " << acc << endl;
     }
 }
 
