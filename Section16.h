@@ -7,39 +7,37 @@
 #include <vector>
 using namespace std;
 
-
-
 //Account.h
 class Account {
-    friend std::ostream& operator<<(std::ostream& os, const Account& account);
+    friend ostream& operator<<(ostream& os, const Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Account";
     static constexpr double def_balance = 0.0;
 protected:
-    std::string name;
+    string name;
     double balance;
 public:
-    Account(std::string name = def_name, double balance = def_balance);
+    Account(string name = def_name, double balance = def_balance);
     bool deposit(double amount);
     bool withdraw(double amount);
 };
 
 //Checking Account.h
 class Checking_Account : public Account {
-    friend std::ostream& operator<<(std::ostream& os, const Checking_Account& account);
+    friend ostream& operator<<(ostream& os, const Checking_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Checking Account";
     static constexpr double def_balance = 0.0;
     static constexpr double per_check_fee = 1.5;
 public:
-    Checking_Account(std::string name = def_name, double balance = def_balance);
+    Checking_Account(string name = def_name, double balance = def_balance);
     bool withdraw(double);
     // Inherits the Account::deposit method
 };
 
 //Savings Account.h
 class Savings_Account : public Account {
-    friend std::ostream& operator<<(std::ostream& os, const Savings_Account& account);
+    friend ostream& operator<<(ostream& os, const Savings_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Savings Account";
     static constexpr double def_balance = 0.0;
@@ -47,14 +45,14 @@ private:
 protected:
     double int_rate;
 public:
-    Savings_Account(std::string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
+    Savings_Account(string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
     bool deposit(double amount);
     // Inherits the Account::withdraw method
 };
 
 //Trust Account.h
 class Trust_Account : public Savings_Account {
-    friend std::ostream& operator<<(std::ostream& os, const Trust_Account& account);
+    friend ostream& operator<<(ostream& os, const Trust_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Trust Account";
     static constexpr double def_balance = 0.0;
@@ -66,7 +64,7 @@ private:
 protected:
     int num_withdrawals;
 public:
-    Trust_Account(std::string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
+    Trust_Account(string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
 
     // Deposits of $5000.00 or more will receive $50 bonus
     bool deposit(double amount);
