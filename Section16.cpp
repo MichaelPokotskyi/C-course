@@ -20,7 +20,7 @@ bool Account::deposit(double amount) {
 bool Account::withdraw(double amount) {
     if (balance - amount >= 0) {
         balance -= amount;
-        //cout << "This!";
+        //ONLY this function will be called for any object inherited from Account class (Base Class reference) by static polymorphism.
         return true;
     }
     else
@@ -127,14 +127,16 @@ void withdraw(vector<Account>& accounts, double amount) {
     }
 }
 
-// 
+// Withdraw amount from each Account object in the vector
+// for exampling Base Class pointer functionality, 
+// accepting vector of pointers to Account objects and working with them by dereferencing
 void withdraw(vector<Account*> accounts, double amount) {
     cout << "\n=== Withdrawing from Accounts ==============================" << endl;
 for (auto acc : accounts) {
         if ((*acc).withdraw(amount))
-            cout << "Withdrew " << amount << " from " << acc << endl;
+            cout << "Withdrew " << amount << " from " << *acc << endl;
         else
-            cout << "Failed Withdrawal of " << amount << " from " << acc << endl;
+            cout << "Failed Withdrawal of " << amount << " from " << *acc << endl;
     }
 }
 
@@ -243,12 +245,11 @@ void s16() {
     
     withdraw(acc, 200.00);
     
-
-       
-
+    delete p1;
+    delete p2;
+    delete p3;
+    delete p4;
     
-
-
     /*
     // Accounts
     vector<Account> accounts;
