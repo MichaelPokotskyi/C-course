@@ -2,14 +2,24 @@
 #ifndef _Section16_H_
 #define _Section16_H_
 
+using namespace std;
+
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+
+// Printable interface
+class Printable
+{
+    friend ostream& operator<<(ostream& os, const Printable& obj);
+public:
+    virtual void print(ostream& os) const = 0;
+    virtual ~Printable() = default;
+};
+
 
 //Account.h
-class Account {
-    friend ostream& operator<<(ostream& os, const Account& account);
+class Account : public Printable {
 private:
     static constexpr const char* def_name = "Unnamed Account";
     static constexpr double def_balance = 0.0;
@@ -18,26 +28,30 @@ protected:
     double balance;
 public:
     Account(string name = def_name, double balance = def_balance);
+    virtual void print(ostream& os) const override {
+        os << "Print from Account class: " << name << " " << balance << endl;
+    }
     bool deposit(double amount);
     bool withdraw(double amount);
 };
 
 //Checking Account.h
 class Checking_Account : public Account {
-    friend ostream& operator<<(ostream& os, const Checking_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Checking Account";
     static constexpr double def_balance = 0.0;
     static constexpr double per_check_fee = 1.5;
 public:
     Checking_Account(string name = def_name, double balance = def_balance);
+    virtual void print(ostream& os) const override {
+        os << "Print from Checking Account class: " << name << " " << balance << endl;
+    }
     bool withdraw(double);
     // Inherits the Account::deposit method
 };
 
 //Savings Account.h
 class Savings_Account : public Account {
-    friend ostream& operator<<(ostream& os, const Savings_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Savings Account";
     static constexpr double def_balance = 0.0;
@@ -46,13 +60,15 @@ protected:
     double int_rate;
 public:
     Savings_Account(string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
+    virtual void print(ostream& os) const override {
+        os << "Print from Saving Account class: " << name << " " << balance << endl;
+    }
     bool deposit(double amount);
     // Inherits the Account::withdraw method
 };
 
 //Trust Account.h
 class Trust_Account : public Savings_Account {
-    friend ostream& operator<<(ostream& os, const Trust_Account& account);
 private:
     static constexpr const char* def_name = "Unnamed Trust Account";
     static constexpr double def_balance = 0.0;
@@ -65,7 +81,9 @@ protected:
     int num_withdrawals;
 public:
     Trust_Account(string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
-
+    virtual void print(ostream& os) const override {
+        os << "Print from Trust Account class: " << name << " " << balance << endl;
+    }
     // Deposits of $5000.00 or more will receive $50 bonus
     bool deposit(double amount);
 
@@ -99,4 +117,5 @@ void withdraw(std::vector<Checking_Account>& accounts, double amount);
 void display(const std::vector<Trust_Account>& accounts);
 void deposit(std::vector<Trust_Account>& accounts, double amount);
 void withdraw(std::vector<Trust_Account>& accounts, double amount);
+
 */

@@ -3,6 +3,13 @@
 #include <vector>
 using namespace std;
 
+
+//Printable interface implementation
+ostream& operator<<(ostream& os, const Printable& obj) {
+    obj.print(os);
+    return os;
+}
+
 //Accopunt.cpp
 Account::Account(string name, double balance)
     : name{ name }, balance{ balance } {
@@ -28,11 +35,6 @@ bool Account::withdraw(double amount) {
         return false;
 }
 
-ostream& operator<<(ostream& os, const Account& account) {
-    os << "[Account: " << account.name << ": " << account.balance << "]";
-    return os;
-}
-
 //Checking Account.cpp
 Checking_Account::Checking_Account(string name, double balance)
     : Account{ name, balance } {
@@ -42,11 +44,6 @@ bool Checking_Account::withdraw(double amount) {
     amount += per_check_fee;
     cout << "Checking Account class withdraw function" << endl;
     return Account::withdraw(amount);
-}
-
-ostream& operator<<(ostream& os, const Checking_Account& account) {
-    os << "[Checking_Account: " << account.name << ": " << account.balance << "]";
-    return os;
 }
 
 //Savings Account.cpp
@@ -63,12 +60,6 @@ bool Savings_Account::deposit(double amount) {
     return Account::deposit(amount);
 }
 
-//cout << "Account class withdraw function" << endl;
-
-ostream& operator<<(ostream& os, const Savings_Account& account) {
-    os << "[Savings_Account: " << account.name << ": " << account.balance << ", " << account.int_rate << "]";
-    return os;
-}
 
 //Trust Accouint.cpp
 Trust_Account::Trust_Account(string name, double balance, double int_rate)
@@ -93,13 +84,6 @@ bool Trust_Account::withdraw(double amount) {
         return Savings_Account::withdraw(amount);
     }
 }
-
-ostream& operator<<(ostream& os, const Trust_Account& account) {
-    os << "[Trust Account: " << account.name << ": " << account.balance << ", " << account.int_rate
-        << "%, withdrawals: " << account.num_withdrawals << "]";
-    return os;
-}
-
 
 
 //Account Util.cpp
@@ -249,6 +233,10 @@ void s16() {
     vector<Account*> acc {p1, p2, p3, p4}; // Base Class pointer VECTOR created
     
     withdraw(acc, 200.00);
+
+    for (auto a: acc) {
+        cout << *a;
+    }
     
     delete p1;
     delete p2;
