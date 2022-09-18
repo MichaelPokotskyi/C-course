@@ -235,7 +235,7 @@ void s16() {
     withdraw(acc, 200.00);
 
     for (auto a: acc) {
-        cout << *a;
+        cout << *a << endl;
     }
     
     delete p1;

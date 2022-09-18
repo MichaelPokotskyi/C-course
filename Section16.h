@@ -29,7 +29,7 @@ protected:
 public:
     Account(string name = def_name, double balance = def_balance);
     virtual void print(ostream& os) const override {
-        os << "Print from Account class: " << name << " " << balance << endl;
+        os << "Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
     bool deposit(double amount);
     bool withdraw(double amount);
@@ -44,7 +44,7 @@ private:
 public:
     Checking_Account(string name = def_name, double balance = def_balance);
     virtual void print(ostream& os) const override {
-        os << "Print from Checking Account class: " << name << " " << balance << endl;
+        os << "Checking Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
     bool withdraw(double);
     // Inherits the Account::deposit method
@@ -61,7 +61,7 @@ protected:
 public:
     Savings_Account(string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
     virtual void print(ostream& os) const override {
-        os << "Print from Saving Account class: " << name << " " << balance << endl;
+        os << "Savings Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
     bool deposit(double amount);
     // Inherits the Account::withdraw method
@@ -82,7 +82,7 @@ protected:
 public:
     Trust_Account(string name = def_name, double balance = def_balance, double int_rate = def_int_rate);
     virtual void print(ostream& os) const override {
-        os << "Print from Trust Account class: " << name << " " << balance << endl;
+        os << "Trust Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
     // Deposits of $5000.00 or more will receive $50 bonus
     bool deposit(double amount);
