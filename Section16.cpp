@@ -234,7 +234,7 @@ void s16() {
     
     withdraw(acc, 200.00);
 
-    for (auto a: acc) {
+    for (auto a: acc) { //teting dynamic polymorphism in loop
         cout << *a << endl;
     }
     
