@@ -10,7 +10,7 @@ ostream& operator<<(ostream& os, const Printable& obj) {
     return os;
 }
 
-//Accopunt.cpp
+//Account.cpp
 Account::Account(string name, double balance)
     : name{ name }, balance{ balance } {
 }
@@ -20,7 +20,6 @@ bool Account::deposit(double amount) {
         return false;
     else {
         balance += amount;
-        //cout << "account type /Account/ " << name << " deposited by " << amount;
         return true;
     }
 }
@@ -28,8 +27,6 @@ bool Account::deposit(double amount) {
 bool Account::withdraw(double amount) {
     if (balance - amount >= 0) {
         balance -= amount;
-        //ONLY this function will be called for any object inherited from Account class (Base Class reference) by static polymorphism.
-        //cout << "Account class withdraw function" << endl;
         return true;
     }
     else
@@ -61,15 +58,21 @@ Savings_Account::Savings_Account(string name, double balance, double int_rate)
     : Account{ name, balance }, int_rate{ int_rate } {
 }
 
-// Deposit:
 //      Amount supplied to deposit will be incremented by (amount * int_rate/100) 
 //      and then the updated amount will be deposited
-//
 bool Savings_Account::deposit(double amount) {
     amount += amount * (int_rate / 100);
     return Account::deposit(amount);
 }
 
+bool Savings_Account::withdraw(double amount) {
+    if (balance - amount >= 0) {
+        balance -= amount;
+        return true;
+    }
+    else
+        return false;
+}
 
 //Trust Accouint.cpp
 Trust_Account::Trust_Account(string name, double balance, double int_rate)
@@ -126,6 +129,7 @@ void withdraw(vector<Account>& accounts, double amount) {
     }
 }
 
+
 // Withdraw amount from each Account object in the vector
 // for exampling Base Class pointer functionality, 
 // accepting vector of pointers to Account objects and working with them by dereferencing
@@ -139,9 +143,20 @@ for (auto acc : accounts) {
     }
 }
 
+void deposit(vector<Account*> accounts, double amount) {
+    cout << "\n=== Deposit to Accounts ==============================" << endl;
+    for (auto acc : accounts) {
+        if ((*acc).deposit(amount))
+            cout << "Deposited " << amount << " to " << *acc << endl;
+        else
+            cout << "Failed deposit " << amount << " to " << *acc << endl;
+    }
+}
+
 // Helper functions for Savings Account class
 
 // Displays Savings Account objects in a  vector of Savings Account objects 
+
 void display(const vector<Savings_Account>& accounts) {
     cout << "\n=== Savings Accounts=====================================" << endl;
     for (const auto& acc : accounts)
@@ -232,28 +247,31 @@ void withdraw(vector<Trust_Account>& accounts, double amount) {
     }
 }
 
+
 //ALL TESTS
 void s16() {
     cout.precision(2);
     cout << fixed;
-    Account* p1 = new Account("Acc", 2000);
+    Account* p1 = new Account("Acc", 1000);
     Account* p2 = new Savings_Account("Sav_Acc", 2000);
-    Account* p3 = new Checking_Account("Check_Acc", 2000);
-    Account* p4 = new Trust_Account("Tr_Acc", 2000);
+    Account* p3 = new Checking_Account("Check_Acc", 3000);
+    Account* p4 = new Trust_Account("Tr_Acc", 4000);
     vector<Account*> acc {p1, p2, p3, p4}; // Base Class pointer VECTOR created
     
     withdraw(acc, 200.00);
 
-    for (auto a: acc) { //teting dynamic polymorphism in loop
-        cout << *a << endl;
-    }
+    //for (auto a: acc) { //teting dynamic polymorphism in loop
+    //    cout << *a << endl;
+    //}
     
+    deposit(acc, 1050.00);
+
     delete p1;
     delete p2;
     delete p3;
     delete p4;
     
-    /*
+    
     // Accounts
     vector<Account> accounts;
     accounts.push_back(Account{});
@@ -305,6 +323,6 @@ void s16() {
     // All withdrawals should fail if there are too many withdrawals or if the withdrawl is > 20% of the balance
     for (int i = 1; i <= 5; i++)
         withdraw(trust_accounts, 1000);
-        */
+        
 
 }
