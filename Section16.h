@@ -8,6 +8,9 @@ using namespace std;
 #include <string>
 #include <vector>
 
+//call from main
+void s16();
+
 // Printable interface
 class Printable
 {
@@ -31,8 +34,10 @@ public:
     virtual void print(ostream& os) const override {
         os << "Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
-    bool deposit(double amount);
-    bool withdraw(double amount);
+    //Base class metods to be inherited by derived classes
+    virtual bool deposit(double amount) = 0;
+    virtual bool withdraw(double amount) = 0;
+    virtual ~Account() = default;
 };
 
 //Checking Account.h
@@ -46,8 +51,10 @@ public:
     virtual void print(ostream& os) const override {
         os << "Checking Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
-    bool withdraw(double);
-    // Inherits the Account::deposit method
+    // Inherits methods from Account base class
+    virtual bool deposit(double amount) override;
+    virtual bool withdraw(double amount) override;
+    virtual ~Checking_Account() = default;
 };
 
 //Savings Account.h
@@ -63,8 +70,10 @@ public:
     virtual void print(ostream& os) const override {
         os << "Savings Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
-    bool deposit(double amount);
-    // Inherits the Account::withdraw method
+    // Inherits methods from Account base class
+    virtual bool deposit(double amount) override;
+    virtual bool withdraw(double amount) override;
+    virtual ~Savings_Account() = default;
 };
 
 //Trust Account.h
@@ -84,14 +93,13 @@ public:
     virtual void print(ostream& os) const override {
         os << "Trust Account class" << endl << "Account name: " << name << endl << "Rest of balance : " << balance << endl;
     }
-    // Deposits of $5000.00 or more will receive $50 bonus
-    bool deposit(double amount);
+    // Inherits methods from Account base class
+    virtual bool deposit(double amount) override; // Deposits of $5000.00 or more will receive $50 bonus
+    virtual bool withdraw(double amount) override; // Only allowed maximum of 3 withdrawals, each can be up to a maximum of 20% of the account's value
+    virtual ~Trust_Account() = default;
+ };
 
-    // Only allowed maximum of 3 withdrawals, each can be up to a maximum of 20% of the account's value
-    bool withdraw(double amount);
-};
 
-void s16();
 
 #endif _Section16_H_
 

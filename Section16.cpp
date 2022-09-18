@@ -20,6 +20,7 @@ bool Account::deposit(double amount) {
         return false;
     else {
         balance += amount;
+        //cout << "account type /Account/ " << name << " deposited by " << amount;
         return true;
     }
 }
@@ -28,7 +29,7 @@ bool Account::withdraw(double amount) {
     if (balance - amount >= 0) {
         balance -= amount;
         //ONLY this function will be called for any object inherited from Account class (Base Class reference) by static polymorphism.
-        cout << "Account class withdraw function" << endl;
+        //cout << "Account class withdraw function" << endl;
         return true;
     }
     else
@@ -38,6 +39,15 @@ bool Account::withdraw(double amount) {
 //Checking Account.cpp
 Checking_Account::Checking_Account(string name, double balance)
     : Account{ name, balance } {
+}
+
+bool Checking_Account::deposit(double amount) {
+    if (amount < 0)
+        return false;
+    else {
+        balance += amount;
+        return true;
+    }
 }
 
 bool Checking_Account::withdraw(double amount) {
