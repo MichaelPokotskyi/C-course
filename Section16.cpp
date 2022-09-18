@@ -260,9 +260,9 @@ void s16() {
     
     withdraw(acc, 200.00);
 
-    //for (auto a: acc) { //teting dynamic polymorphism in loop
-    //    cout << *a << endl;
-    //}
+    for (auto a: acc) { //teting dynamic polymorphism in loop
+        cout << *a << endl;
+    }
     
     deposit(acc, 1050.00);
 
