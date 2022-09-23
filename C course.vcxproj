@@ -145,6 +145,7 @@
     <ClCompile Include="Section16.cpp" />
     <ClCompile Include="Section_14.cpp" />
     <ClCompile Include="Section_15.cpp" />
+    <ClCompile Include="Section_17.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="1st_assignment.h" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Section_13.h" />
     <ClInclude Include="Section_14.h" />
     <ClInclude Include="Section_15.h" />
+    <ClInclude Include="Section_17.h" />
     <ClInclude Include="Section_4.h" />
     <ClInclude Include="Section_6.h" />
     <ClInclude Include="Section_7.h" />
