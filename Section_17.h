@@ -10,7 +10,7 @@ private:
     int data;
 public:
     Test() : data{ 0 } { cout << "\tTest constructor (" << data << ")" << endl; }
-    Test(int data) : data{ data } { cout << "\tTest constructor (" << data << ")" << endl; }
+    Test(int data) : data{ data } { cout << "\tTest constructor with Int (" << data << ")" << endl; }
     int get_data() const { return data; } //getter func
     ~Test() { cout << "\tTest destructor (" << data << ")" << endl; }
 };
@@ -18,5 +18,5 @@ public:
 // func prototypes
 int s17();
 unique_ptr<vector<shared_ptr<Test>>> make();
-void fill(vector<shared_ptr<Test>>& vec, int num);
+void fill(vector<shared_ptr<Test>> &vec, int num);
 void display17(const vector<shared_ptr<Test>>& vec);
