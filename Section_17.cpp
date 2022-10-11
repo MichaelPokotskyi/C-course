@@ -18,11 +18,10 @@ void fill(vector<shared_ptr<Test>> &vec, int num) {
     }
 }
 
-void display17(const vector<shared_ptr<Test>>& vec) {
-   for (auto a : vec)
-   {
-      cout << "Data: " << a << endl;
-   }
+void display17(const vector<shared_ptr<Test>> &vec) {
+    for (const auto &a : vec) { 
+        cout << a->get_data() << endl;
+    }
 }
 
 int s17() {
@@ -32,6 +31,6 @@ int s17() {
     int num;
     cin >> num;
     fill((*vec_ptr), num);
-    //display17(*vec_ptr);
+    display17(*vec_ptr);
     return 0;
 }
